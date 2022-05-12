@@ -94,7 +94,7 @@ function reqLogin() {
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
 }
-reqLogin()
+//reqLogin()
 
 //로그아웃 request
 //URL : /users/logout
@@ -164,7 +164,7 @@ function reqPwdChange() {
     .then((res) => console.log(res))
     .catch((error) => console.log(error));
 }
-reqPwdChange()
+//reqPwdChange()
 
 //회원탈퇴 request
 //URL : /users/signout
