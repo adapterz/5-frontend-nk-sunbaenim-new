@@ -100,21 +100,18 @@ function reqGetArticle() {
 
   request(`articles/${article_id}`, httpMethod.get)
     .then((data) => {
-      const result = {
-        // 글쓴이
-        writer: data["writer"],
-        // 글제목
-        title: data["article"].title,
-        // 글내용
-        content: data["article"].content,
-        // 조회수
-        views: data["article"].views,
-        // 댓글 총 개수
-        comments: data["article"].total_comments,
-        // 좋아요 총 개수
-        likes: data["article"].total_likes,
-      };
+      // writer: 작성자, title: 글제목, content: 글내용,
+      // views: 조회수, comments: 댓글 총 개수, likes: 좋아요 총 개수
+      const result =
+        `writer: ${data["writer"]}\n
+        title: ${data["article"].title}\n
+        content: ${data["article"].content}\n
+        views: ${data["article"].views}\n
+        comments: ${data["article"].total_comments}\n
+        likes: ${data["article"].total_likes}\n`
+
       console.log(result);
+      // console.log(data["writer"], data["article"]);
     })
     .catch((error) => console.log(error));
 }
@@ -155,16 +152,31 @@ function reqGetArticles() {
   const query_info = {
     cursor: 0,
     limit: 10,
-    key: "한밭",
+    key: "",
   };
 
   // 쿼리문으로 생성
+  // TODO: Object.keys 주어진 객체의 속성 이름들을 일반적인 반복문과 동일한 순서로 순회되는 열거할 수 있는 배열로 반환
   const query = Object.keys(query_info)
     .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(query_info[k]))
     .join("&");
 
   request(`articles?${query}`, httpMethod.get)
-    .then((data) => console.log(data))
+    .then((json) => {
+      let result = "";
+      for(let i = 0; i < json['data'].length; i++){
+        result = result + `
+          "id": ${json['data'][i].id}
+          "user_id": ${json['data'][i].user_id}
+          "title": ${json['data'][i].title}
+          "create_at": ${json['data'][i].create_at}
+          "comments": ${json['data'][i].total_comments}
+          "likes": ${json['data'][i].total_likes}
+        `;
+      }
+      // console.log(json['data']);
+      console.log(result);
+    })
     .catch((error) => console.log(error));
 }
 
