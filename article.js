@@ -137,18 +137,14 @@ function reqGetMyArticles() {
 
   // 0은 임시 발행한 게시물을, 1은 유저가 발행한 게시물을 의미한다.
   const is_published = 1;
-  const body = {
-    // 로그인한 유저의 아이디 (FIXME: 원래는 session으로 전달하기 때문에 어떻게 session으로 전달할 지 고민 필요.)
-    user_id: 64,
-  };
 
-  request(`articles/my/${is_published}?${query}`, httpMethod.get, body)
+  request(`articles/my/${is_published}?${query}`, httpMethod.get)
     .then((data) => console.log(data))
     .catch((error) => console.log(error));
 }
 
 // 22.05.13
-// 전체 게시글 목록 조회 request
+// 게시글 목록 조회 request
 // URL : /articles?limit&cursor&key
 function reqGetArticles() {
   // dummy data
@@ -159,7 +155,7 @@ function reqGetArticles() {
   const query_info = {
     cursor: 0,
     limit: 10,
-    key: "",
+    key: "한밭",
   };
 
   // 쿼리문으로 생성
@@ -178,8 +174,8 @@ function reqGetArticles() {
 function reqLikes() {
   // dummy data
   const body = {
-    user_id: 64,
-    article_id: 155
+    user_id: 60,
+    article_id: 156
   };
 
   request(`articles/likes`, httpMethod.post, body)
