@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 모듈 도입 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 주석 작성일자 : 22.05.16 ~ 22.05.17 -->
+    <!-- 서비스 이름 -->
+    <title>SUNBAENIM</title>
+  </head>
+  <body>
+    <!-- 서비스 네비게이션 바 -->
+    <header aria-label="서비스 로고 및 상단 메뉴바">
+      <h3 aria-label="로고 텍스트">SUNBAENIM</h3>
+      <ul>
+        <li><a href="" aria-label="홈화면">HOME</a></li>
+        <li><a href="" aria-label="운영진 소개">ABOUT US</a></li>
+        <li><a href="" aria-label="서비스 소개">SERVICE</a></li>
+        <li><a href="" aria-label="게시판">FORUM</a></li>
+      </ul>
+      <button><a href="" aria-label="로그인 버튼">LOG IN</a></button>
+      <!--모바일 화면으로 줄어들었을 때 나타나는 토글 버튼 -->
+      <a href="#" class="navbarToggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr />
+    <!-- 서비스 기본 이미지 -->
+    <figure aria-label="홈페이지의 대표 이미지">
+      <span>Are you<br />Looking for<br />SUNBAENIM?</span>
+      <img src="../assets/images/main-image.jpg" alt="main image" />
+    </figure>
+    <!-- 섹션 구분선 -->
+    <hr />
+    <!-- 서비스 소개 및 특징 설명 섹션 -->
+    <section class="serviceInfo" aria-label="서비스 소개 섹션">
+      <article class="about" aria-label="서비스 요약 소개">
+        <h3 class="aboutTitle">SUNBAENIM?</h3>
+        <p class="aboutText">
+          Beyond relying solely on the network, <br />
+          you can reach the information and experience you want.<br />
+          Now, start a new conversation for your career.
+        </p>
+      </article>
+      <article class="balloons" aria-label="서비스 세부 특징 소개">
+        <p class="balloon type1">1:1 Connection in 20mins</p>
+        <p class="balloon type2">Connect with the IT partner you want</p>
+        <p class="balloon type1">Anonymous is guaranteed</p>
+      </article>
+    </section>
+    <!-- 서비스 주요 카테고리 섹션 -->
+    <section class="fieldSection" aria-label="서비스 주요 카테고리 섹션">
+      <h3 class="fieldTitle">SUNBAENIM CAREER CATEGORIES</h3>
+      <article class="fieldContainer">
+        <div class="fieldItem">Front-End</div>
+        <div class="fieldItem">Back-End</div>
+        <div class="fieldItem">Full-Stack</div>
+        <div class="fieldItem">iOS</div>
+        <div class="fieldItem">Android</div>
+        <div class="fieldItem">AI</div>
+        <div class="fieldItem"></div>
+        <div class="fieldItem">Recommend<br />SUNBAENIM for you</div>
+      </article>
+    </section>
+    <!-- 리뷰어의 서비스 리뷰 섹션 -->
+    <section class="reviewSection" aria-label="서비스 리뷰 섹션">
+      <h3 class="reviewTitle">Review of Users</h3>
+      <section class="reviewSlide" aria-label="서비스 리뷰 슬라이드">
+        <button id="left" onclick="" class="arrowBtn" aria-label="슬라이드 버튼">&#8249;</button>
+        <article class="reviewerArticle" aria-label="유저의 리뷰 아티클">
+          <img
+            class="reviewerImage"
+            src="../assets/images/reviewer_image.png"
+            alt="reviewer image"
+          />
+          <p class="reviewerCompany">Test Cooperation</p>
+          <span class="reviewerProfile"
+            >Front-end Engineer, <br />
+            Ms. Nana Rodregez
+          </span>
+          <p class="reviewText">
+            Thank you for the service! <br>It was very helpful. I'm thinking about
+            changing my career, and thank you so much for the sweet support that
+            encouraging me. Challenging in any profession....
+          </p>
+        </article>
+        <button id="right" onclick="" class="arrowBtn" aria-label="슬라이드 버튼">&#8250;</button>
+      </section>
+    </section>
+    <!-- footer : 저작권 정보, 회사 정보 삽입 예정 -->
+    <footer>
+      <p>저작권 정보가 들어가는 공간</p>
+    </footer>
+  </body>
+</html>
