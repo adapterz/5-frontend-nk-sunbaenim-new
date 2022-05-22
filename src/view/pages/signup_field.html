@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 도입 -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/signup_field.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 주석 작성일자 : 22.05.18 -->
+    <title>field | SUNBAENIM</title>
+  </head>
+  <body>
+    <section id="wrapper">
+      <header class="navBar" aria-label="서비스 로고 및 상단 메뉴바">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+        <ul class="navBarIcons">
+          <li class="navBarIcon">
+            <a href="" class="navBarInnerText" aria-label="홈화면">HOME</a>
+          </li>
+          <li class="navBarIcon">
+            <a href="" class="navBarInnerText" aria-label="운영진 소개"
+              >ABOUT US</a
+            >
+          </li>
+          <li class="navBarIcon">
+            <a href="" class="navBarInnerText" aria-label="서비스 소개"
+              >SERVICE</a
+            >
+          </li>
+          <li class="navBarIcon">
+            <a href="" class="navBarInnerText" aria-label="게시판">FORUM</a>
+          </li>
+        </ul>
+        <button class="loginBtn">
+          <a
+            href="login.html"
+            class="loginBtnInnerText"
+            aria-label="로그인 버튼"
+            >LOG IN</a
+          >
+        </button>
+        <!--모바일 화면으로 줄어들었을 때 나타나는 토글 버튼 -->
+        <a href="#" class="navbarToggleBtn">
+          <i class="fas fa-bars"></i>
+        </a>
+      </header>
+      <!-- 섹션 구분선 -->
+      <hr class="line" />
+      <section class="fieldSection" aria-label="서비스 주요 카테고리 섹션">
+        <h1 class="fieldTitle">Choose your categories</h1>
+        <form action="" method="POST" class="fieldContainer" id="fieldForm">
+          <!-- 051922 버튼을 눌러 데이터를 전송하도록 보내고 싶을 경우, 아래와 같이 button type을 button이라고 해도 괜찮을까요? 찾아보니 button type을 button은 아무 기능을 하지 않고 보통 onclick 안에 이벤트를 생성하여 작동하는 용도로 많이 쓰이던데, submit 목적과 부합하지 않는 것 같아 여쭤봅니다.  -->
+          <button type="button" name="field_id" value="1" class="fieldItem_frontend">Front-End</button>
+          <button type="button" name="field_id" value="2" class="fieldItem_backend">Back-End</button>
+          <button type="button" name="field_id" value="3" class="fieldItem_fullstack">Full-Stack</button>
+          <button type="button" name="field_id" value="4" class="fieldItem_ios">iOS</button>
+          <button type="button" name="field_id" value="5" class="fieldItem_android">Android</button>
+          <button type="button" name="field_id" value="6" class="fieldItem_ai">AI</button>
+        </form>
+        <section class="submitSection">
+          <button type="submit" form="fieldForm" class="submitBtn"> Create Account </button>
+        </section>
+      </section>
+    </section>
+    <footer class="footer"></footer>
+  </body>
+</html>

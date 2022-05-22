@@ -1,0 +1,168 @@
+/* 220519 푸터 고정을 위해 추가 */
+html, body {
+  height: 100%;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+#wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+/* header: 서비스 네비게이션 바 */
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  height: 60px;
+  font-size: 1rem;
+}
+
+.navBarIcons {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 헤더 주요 메뉴들(Home, About us, Service, Forum) 사이의 마진 */
+.navBarIcon {
+  margin: 30px;
+}
+
+/* 모바일 화면으로 줄어들었을 때 나타나는 토글 버튼  */
+.navbarToggleBtn {
+  display: none;
+  position: absolute;
+}
+
+/* 로그인 버튼 */
+/* 로그인 버튼의 레이아웃 스타일 */
+.loginBtn {
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: rgb(173, 201, 241);
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(109, 165, 245);
+}
+/* 로그인 버튼의 텍스트 스타일 */
+.loginBtnInnerText {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(109, 165, 245);
+}
+/* 헤더 메뉴 버튼 태그가 링크 태그여서 발생하는 속성 초기화 처리 */
+.navBarInnerText {
+  text-decoration: none;
+  color: black;
+}
+
+/* 구분선 */
+.line {
+  width: 90%;
+  color: lightgrey;
+}
+
+/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
+@media screen and (max-width: 750px) {
+  .navBarIcons {
+    display: none;
+  }
+  .loginBtn {
+    display: none;
+  }
+}
+
+/* section 태그 구분을 위한 헤딩 태그 초기화 */
+.headingTag {
+  display: none;
+}
+
+.formCard {
+  width: 480px;
+  margin: 40px auto;
+}
+
+.formCardHeader {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.formCardFormat {
+  display: grid;
+  height: 500px;
+  margin: 40px auto;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: rgb(173, 201, 241);
+  border-radius: 20px;
+}
+
+.formMessages {
+  text-align: center;
+}
+.profileGuide {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.profileForm{
+  margin-bottom: 50px;
+  width: 300px;
+}
+
+.inputNickname{
+  width: 290px;
+  height: 50px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-style: none;
+  border-radius: 10px;
+  padding : 0 0 0 10px;
+}
+
+.nicknameValidation{
+  display: none;
+}
+
+.submitBtn{
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 300px;
+  height: 40px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: rgb(82, 146, 238);
+  margin-top: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.submitBtn:hover{
+  background-color: rgb(32, 49, 118);
+  color: white;
+}
+
+input::placeholder {
+  font-size: 1rem;
+  color: lightgrey;
+  padding: 10px 5px;
+}
+
+/* footer 섹션 */
+.footer {
+  height: 60px;
+  position: relative;
+  transform: translateY(-100%);
+  background-color: rgb(32, 49, 118);
+}

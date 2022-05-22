@@ -1,0 +1,235 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border-style: none;
+  border-radius: 10px;
+}
+
+/* 각 section 구분선 */
+hr {
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 052022 section, nav, article 태그 사용 시 헤딩 테그 브라우저에서 숨김 처리 */
+.heading-tag {
+  display: none;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* >> header */
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.header .wrapper {
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.header__icon {
+  font-size: 1rem;
+}
+
+.header__icon--dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.header__icon--dropdown-contents {
+  display: none;
+  position: absolute;
+  padding: 10px 0px 10px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(109, 165, 245);
+  min-width: 150px;
+  z-index: 1;
+}
+
+.header__icon--dropdown-content {
+  color: black;
+  width: 100px;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+
+.header__icon--dropdown-content:hover {
+  background-color: rgb(109, 165, 245);
+  border-radius: 10px;
+}
+
+.header__icon--dropdown:hover .header__icon--dropdown-contents {
+  display: grid;
+  justify-content: center;
+}
+
+/* header 알람 아이콘 */
+.header__icon--dropdown-notification {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* header 내 계정 아이콘 */
+.header__icon--dropdown-account {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* >> article 페이지의 헤더 이미지 */
+.figure__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.main .wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  column-gap: 20px;
+}
+
+/* 052222 >> 게시판 주제 및 검색을 할 수 있는 네비게이션 리스트 */
+.main-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-nav__title {
+  font-size: 2rem;
+  margin-left: 15px;
+}
+
+.main-nav__icon {
+  font-size: 1.3rem;
+  font-weight: 350;
+  height: 30px;
+  padding: 10px 10px 5px;
+  margin: 1vh;
+  border-radius: 10px;
+}
+
+.main-nav__icon:hover,
+.main-nav__icon.active {
+  background-color: white;
+}
+
+.main-nav__icon--search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-nav__icon--search-btn {
+  width: 50%;
+}
+
+.article {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.article__btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.article__btn--create {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border-style: none;
+  background-color: #D08187;
+  padding: 5px;
+  font-weight: 300;
+  color:black;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.article__content {
+  padding-left: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #DCA6AA;
+  background-color: white;
+  padding: 20px;
+}
+
+.article__content--thumbnail {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.article__content--profile {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  border-style: solid;
+  cursor: pointer;
+}

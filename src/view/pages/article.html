@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 도입 -->
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="../styles/article.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- 링크 폰트 설치에 대한 장단점을 찾아보기 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>article | SUNBAENIM</title>
+  </head>
+  <body>
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+          <a href="" class="header__icon" aria-label="홈화면">HOME</a>
+          <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+          <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+          <a href="" class="header__icon" aria-label="게시판">FORUM</a>
+          <section class="header__icon">
+            <section class="header__icon--dropdown">
+              <button type="button" class="header__icon--dropdown-notification"></button>
+              <div class="header__icon--dropdown-contents">
+                <a href="#" aria-label="댓글 달림 알람" class="header__icon--dropdown-content"
+                  >You've got a comment</a
+                >
+                <a href="#" aria-label="좋아요 알람" class="header__icon--dropdown-content"
+                  >You've got a likes</a
+                >
+              </div>
+            </section>
+            <section class="header__icon--dropdown">
+              <button type="button" class="header__icon--dropdown-account"></button>
+              <div class="header__icon--dropdown-contents">
+                <a href="#" aria-label="내 계정" class="header__icon--dropdown-content"
+                  >My page</a
+                >
+                <a href="#" aria-label="게시물 작성하기" class="header__icon--dropdown-content"
+                  >Create Post</a
+                >
+                <a href="#" aria-label="북마크" class="header__icon--dropdown-content"
+                  >Bookmark</a
+                >
+              </div>
+            </section>
+          </section>
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr/>
+    <section class="figure">
+      <div class="wrapper">
+        <img class="figure__img" src="../../assets/images/article_header.jpg">
+      </div>
+    </section>
+    <section class="main">
+      <div class="wrapper">
+        <h1 class="heading-tag">article navigation section</h1>
+        <nav class="main-nav">
+          <h1 class="main-nav__title">Topics 🗣️</h1>
+          <a href="#" class="main-nav__icon active">All Listings </a>
+          <a href="#" class="main-nav__icon">IT Conference</a>
+          <a href="#" class="main-nav__icon">Project Promo</a>
+          <a href="#" class="main-nav__icon">Study Gathering</a>
+          <a href="#" class="main-nav__icon">Education</a>
+          <form class="main-nav__icon--search">
+            <input class="main-nav__icon--search-text" type="text" placeholder="Keywords">
+            <input class="main-nav__icon--search-btn" type="submit" value="Search">
+          </form>
+        </nav>
+      <section class="article">
+        <h1 class="heading-tag">article section</h1>
+        <div class="article__btn">
+          <a href="#" class="article__btn--create">Create Post</a>
+        </div>
+        <article class="article__content">
+          <img class="article__content--thumbnail" src="../../assets/images/article_header.jpg">
+          <button class="article__content--profile"></button>
+          <span class="article__content--nickname">Nickname</span>
+          <span class="article__content--date">Mar 18, 2022</span>
+          <header class="article__content--title">The Rise of the Developer Community - Free Virtual Meetup - Mar 24 1pm ET (GMT -4)</header>
+          <article class="article__content--words">
+            What is Lorem Ipsum?
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+          </article>
+          <hr>
+          <span class="article__content--comment-title">Discussion</span>
+          <span class="article__content--likes">1K Likes</span>
+          <span class="article__content--bookmark">icon</span>
+          <textarea rows="4" cols="50" name="comment" form="commentform">
+          Enter text here...</textarea>
+          <form action="" id="commentform">
+            <input type="submit">
+          </form>
+          <!-- TODO: 게시글 작성 라이브러리 검토해보기(디비에 어떻게 최대한 변경 없이 저장되지를 중점으로, 서버에 어떻게 전달될지)
+          TODO: 푸터에 기업 정보 삽입하기 -->
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

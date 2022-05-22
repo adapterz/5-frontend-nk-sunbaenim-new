@@ -1,0 +1,306 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+body{
+  background-color: #e5e5e5;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* 052022 헤딩태그 브라우저에서 숨김 처리 */
+.headingTag {
+  display: none;
+}
+
+
+.navBar .wrapper{
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* header: 서비스 네비게이션 바 */
+.navBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  width: 100vw;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.navBarIcons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+/* header navigation이 a tag여서 발생하는 링크 기본 스타일을 초기화 처리 */
+.navBarIcon {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* 상단 메뉴바의 알림 아이콘 */
+.notification {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* 내 계정 아이콘 */
+.account {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* 내 계정 아이콘의 드롭다운 메뉴 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContents {
+  display: none;
+  position: absolute;
+  padding: 10px 0px 10px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(109, 165, 245);
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdownContent {
+  color: black;
+  width: 100px;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdownContents {
+  display: grid;
+  justify-content: center;
+}
+
+.dropdownContent:hover {
+  background-color: rgb(109, 165, 245);
+  border-radius: 10px;
+}
+
+
+/* 각 section 구분선 */
+.line {
+  width: 90%;
+  color: lightgrey;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
+@media screen and (max-width: 750px) {
+  .navBarIcons {
+    display: none;
+  }
+}
+
+.mainArea{
+  background-color: #E5E5E5;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top:0px;
+}
+
+.mainArea .wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+
+.navArea{
+  width: 20%;
+  margin-top: 30px;
+  display: grid;
+  grid-template-rows: 100px 200px;
+  justify-items: center;
+}
+
+.navTitle{
+  font-size: 2rem;
+}
+.navlists{
+  list-style-type: none;
+  padding: 0;
+  margin: 10px auto;
+  display: grid;
+  align-items: center;
+  width: 200px;
+}
+.navlist{
+  font-size: 1.3rem;
+  font-weight: 350;
+  margin: 10px 0 10px;
+  padding-left: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+/* 051922 자바스크립트 함수로 내가 원하는 기능(디폴트로 hover 스타일 적용)을 구현할 수 있다고 판단 */
+.navlist:hover,
+.navlist.active{
+  background-color: white;
+  border-radius: 10px;
+}
+
+.listArea{
+  width:60%;
+  display: grid;
+  grid-template-rows: 50px auto;
+}
+
+.listImg{
+  object-fit: cover;
+  width: 100%;
+  height: 185px;
+  border-radius: 0 0 10px 10px;
+}
+
+.listHeader{
+  display: flex;
+  margin-top: 150px;
+  justify-content: space-between;
+  align-items: center;
+}
+.listHeaderTitle{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color:black;
+  margin-left: 10px;
+}
+#sorting{
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 5px;
+  font-weight: 300;
+}
+
+.articles{
+  padding-left: 0;
+}
+
+.article{
+  list-style-type: none;
+  padding: 0;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #DCA6AA;
+  background-color: white;
+  padding: 20px;
+}
+
+.title{
+  font-size: 1.2rem;
+  font-weight: 450;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.reactions{
+  margin-top: 10px;
+  display: flex;
+  font-weight: 300;
+}
+
+.date{
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.deleteBtn, .editBtn {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #DCA6AA;
+  border-width: 2px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.deleteBtn{
+  color: red;
+}
+
+.pagination{
+  display: inline-block;
+  margin: 50px auto;
+}
+
+.pageNum {
+  color: black;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.pageNum.active{
+  background-color: #DCA6AA;
+  color: white;
+  border: 1px solid #DCA6AA;
+}
+
+.pageNum:hover:not(.active) {
+  background-color: #ddd;
+}
+
+
+.bottom {
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 100px;
+}

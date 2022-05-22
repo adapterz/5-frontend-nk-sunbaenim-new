@@ -1,0 +1,252 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+body{
+  background-color: #e5e5e5;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* 052022 헤딩태그 브라우저에서 숨김 처리 */
+.headingTag {
+  display: none;
+}
+
+
+.navBar .wrapper{
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* header: 서비스 네비게이션 바 */
+.navBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 4.5rem;
+  width: 100vw;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.navBarIcons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+/* header navigation이 a tag여서 발생하는 링크 기본 스타일을 초기화 처리 */
+.navBarIcon {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* 상단 메뉴바의 알림 아이콘 */
+.notification {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* 내 계정 아이콘 */
+.account {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* 내 계정 아이콘의 드롭다운 메뉴 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContents {
+  display: none;
+  position: absolute;
+  padding: 10px 0px 10px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(109, 165, 245);
+  min-width: 150px;
+  z-index: 1;
+}
+
+.dropdownContent {
+  color: black;
+  width: 100px;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdownContents {
+  display: grid;
+  justify-content: center;
+}
+
+.dropdownContent:hover {
+  background-color: rgb(109, 165, 245);
+  border-radius: 10px;
+}
+
+
+/* 각 section 구분선 */
+.line {
+  width: 90%;
+  color: lightgrey;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
+@media screen and (max-width: 750px) {
+  .navBarIcons {
+    display: none;
+  }
+}
+
+.mainArea {
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.mainArea .wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+  margin-top: 50px;
+}
+
+.navArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navTitle {
+  font-size: 2rem;
+}
+
+.navlists {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+.navlist {
+  font-size: 1rem;
+  font-weight: 350;
+  margin: 3px 0 3px;
+  padding: 2px 5px 2px 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
+
+.navlist:hover,
+.navlist.active {
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+.accountArea{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+/* .listHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listHeaderTitle{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color:black;
+  margin-left: 10px;
+} */
+
+
+.userPicture{
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+}
+
+.profile, .changePwd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputArea{
+  border-radius: 10px;
+  border-style: none;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.submitProfile{
+  color: black;
+  height: 30px;
+  padding: 3px 5px 3px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: rgb(82, 146, 238);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.submitProfile:hover{
+  background-color: rgb(32, 49, 118);
+  color: white;
+}
+
+
+.deleteAccountBtn{
+  color: gray;
+  text-decoration: none;
+}

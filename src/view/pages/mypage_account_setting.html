@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 도입 -->
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/mypage_account_setting.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>account | SUNBAENIM</title>
+  </head>
+  <body>
+    <!-- 서비스 네비게이션 바 -->
+    <header class="navBar" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <section class="navBarIcons">
+          <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+          <a href="" class="navBarIcon" aria-label="홈화면">HOME</a>
+          <a href="" class="navBarIcon" aria-label="운영진 소개">ABOUT US</a>
+          <a href="" class="navBarIcon" aria-label="서비스 소개">SERVICE</a>
+          <a href="" class="navBarIcon" aria-label="게시판">FORUM</a>
+          <section class="loggedInNav">
+            <div class="dropdown">
+              <button type="button" class="notification"></button>
+              <div class="dropdownContents">
+                <a href="#" aria-label="댓글 달림 알람" class="dropdownContent"
+                  >You've got a comment</a
+                >
+                <a href="#" aria-label="좋아요 알람" class="dropdownContent"
+                  >You've got a likes</a
+                >
+              </div>
+            </div>
+            <div class="dropdown">
+              <button type="button" class="account"></button>
+              <div class="dropdownContents">
+                <a href="#" aria-label="내 계정" class="dropdownContent"
+                  >My page</a
+                >
+                <a href="#" aria-label="게시물 작성하기" class="dropdownContent"
+                  >Create Post</a
+                >
+                <a href="#" aria-label="북마크" class="dropdownContent"
+                  >Bookmark</a
+                >
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr class="line" />
+    <section class="mainArea">
+      <div class="wrapper">
+        <h1 class="headingTag">Mypage section</h1>
+        <nav class="navArea">
+          <h1 class="navTitle">My page 🙋</h1>
+          <div class="navlists">
+            <a href="#" class="navlist">My postings </a>
+            <a href="#" class="navlist">My comments</a>
+            <a href="#" class="navlist">Saved postings</a>
+            <a href="#" class="navlist active">Account setting</a>
+          </div>
+        </nav>
+        <section class="accountArea">
+          <h1 class="headingTag">My postings section</h1>
+          <!-- <header class="listHeader">
+            <span class="listHeaderTitle">Account Setting</span>
+          </header> -->
+          <section class="profileSection">
+            <div class="null"></div>
+            <button class="userPicture"></button>
+            <form class="profile">
+              <label for="inputFile">프로필 파일</label>
+              <input
+                id="inputFile"
+                class="inputFile"
+                type="file"
+                name="avatar"
+                accept="image/png, image/jpeg"
+              />
+              <input
+                class="inputArea"
+                type="text"
+                name="nickname"
+                placeholder="Nickname"
+              />
+              <input class="submitProfile" type="submit" value="Save Change" />
+            </form>
+          </section>
+          <section class="changePwdSection">
+            <form class="changePwd">
+              <input
+                class="inputArea"
+                type="text"
+                name="pwd"
+                placeholder="New Password"
+              />
+              <input
+                class="inputArea"
+                type="text"
+                name="new_pwd"
+                placeholder="New Password"
+              />
+              <input
+                class="inputArea"
+                type="text"
+                name="new_pwd_check"
+                placeholder="New Password"
+              />
+              <input class="submitProfile" type="submit" value="Save Change" />
+            </form>
+          </section>
+          <a href="#" class="deleteAccountBtn">Delete Account</a>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>
