@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- normalize.css 도입 -->
-    <link rel="stylesheet" href="../styles/normalize.css" />
-    <link rel="stylesheet" href="../styles/articles.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="articles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -56,7 +56,7 @@
     <hr/>
     <section class="figure">
       <div class="wrapper">
-        <img class="figure__img" src="../../assets/images/article_header.jpg">
+        <img class="figure__img" src="article_header.jpg">
       </div>
     </section>
     <section class="main">
@@ -87,7 +87,7 @@
           </header>
           <ul class="main-list__articles">
             <li class="main-list__article">
-              <div>
+              <div class="main-list__article--content">
                 <a href="#" class="main-list__article--title"
                   >The Rise of the Developer Community - Free Virtual Meetup -
                   Mar 24 1pm ET (GMT -4) Looking ...</a
@@ -98,56 +98,11 @@
                   <div class="date">Mar 18, 2022</div>
                 </div>
               </div>
-              <div class="main-list__article--nickname">Nickname</div>
-              <button class="main-list__article--profile"></button>
-            </li>
-            <li class="main-list__article">
-              <div>
-                <a href="#" class="main-list__article--title"
-                  >The Rise of the Developer Community - Free Virtual Meetup -
-                  Mar 24 1pm ET (GMT -4) Looking ...</a
-                >
-                <div class="main-list__article--reactions">
-                  <div class="likes"><img />4K Likes</div>
-                  <div class="comments"><img />5 Comments</div>
-                  <div class="date">Mar 18, 2022</div>
-                </div>
-              </div>
-              <div class="main-list__article--nickname">Nickname</div>
-              <button class="main-list__article--profile"></button>
-            </li>
-            <li class="main-list__article">
-              <div>
-                <a href="#" class="main-list__article--title"
-                  >The Rise of the Developer Community - Free Virtual Meetup -
-                  Mar 24 1pm ET (GMT -4) Looking ...</a
-                >
-                <div class="main-list__article--reactions">
-                  <div class="likes"><img />4K Likes</div>
-                  <div class="comments"><img />5 Comments</div>
-                  <div class="date">Mar 18, 2022</div>
-                </div>
-              </div>
-              <div class="main-list__article--nickname">Nickname</div>
-              <button class="main-list__article--profile"></button>
-            </li>
-            <li class="main-list__article">
-              <div>
-                <a href="#" class="main-list__article--title"
-                  >The Rise of the Developer Community - Free Virtual Meetup -
-                  Mar 24 1pm ET (GMT -4) Looking ...</a
-                >
-                <div class="main-list__article--reactions">
-                  <div class="likes"><img />4K Likes</div>
-                  <div class="comments"><img />5 Comments</div>
-                  <div class="date">Mar 18, 2022</div>
-                </div>
-              </div>
-              <div class="main-list__article--nickname">Nickname</div>
-              <button class="main-list__article--profile"></button>
+              <span class="main-list__article--nickname">Nickname</span>
+              <button class="main-list__article--user-img"></button>
             </li>
           </ul>
-          <nav class="main-list__page">
+          <!-- <nav class="main-list__page">
             <h1 class="heading-tag">pagination</h1>
             <a class="main-list__page--number" href="#">&laquo;</a>
             <a class="main-list__page--number active" href="#">1</a>
@@ -156,11 +111,12 @@
             <a class="main-list__page--number" href="#">4</a>
             <a class="main-list__page--number" href="#">5</a>
             <a class="main-list__page--number" href="#">&raquo;</a>
-          </nav>
+          </nav> -->
           <div class="bottom">
           </div>
         </section>
       </div>
     </section>
+    <script type="module" src="get_articles.js"></script>
   </body>
 </html>
