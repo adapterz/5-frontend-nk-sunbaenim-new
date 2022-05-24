@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 051822 normalize.css 내 디렉토리로 파일 생성하여 도입 -->
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/signup.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="signup.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,7 +52,6 @@
       <!-- 섹션 구분선 -->
       <hr class="line" />
       <section class="formCard" aria-label="회원가입 폼 카드">
-        <!-- 051922 section, article, nav 태그의 경우 heading tag를 설정해주는 것이 좋다고 들었는데, 개인 선호도에 기반할까요? -->
         <h1 class="headingTag">Signup process #1</h1>
         <header class="formCardHeader" aria-label="회원가입 폼 제목">
           Welcome to SUNBAENIM
@@ -67,7 +65,7 @@
               Please input your new account information
             </div>
           </header>
-          <form action="" method="POST" class="signUpForm">
+          <form action="" method="POST" class="signUpForm" id="signUp">
             <div class="signUpInputs">
               <input
                 type="email"
@@ -100,8 +98,6 @@
                 id="pwd_check"
               />
             </div>
-            <!-- 051922 form 태그로 감싸진 컴포넌트 안에 데이터를 전송하지 않아도 되는 요소가 존재할 경우, 어떻게 처리하는 게 좋을까요?
-            내 생각 : button을 밖으로 빼서 form에 연결한 뒤, form 태그 안에 필요 없는 컴포넌트와 함께 밖으로 뺀다 -->
             <div class="signUpInputs">
               <div class="termsOfService">
                 <input
@@ -116,6 +112,7 @@
               </div>
             </div>
             <!-- 051922 submit 이후 다음 페이지로 넘어가게 하려면 서버에서 res.render로 처리해주는걸까요?  -->
+            <!-- 052422 서버에서는 페이지 파일을 전달하지 않는다. 클라이언트 서버에서 처리할 방법을 고민해야 함 -->
             <div class="signUpInputs">
                 <input
                 type="submit"
@@ -129,5 +126,6 @@
       </section>
     </section>
     <footer class="footer"></footer>
+    <script type="module" src="user.js"></script>
   </body>
 </html>
