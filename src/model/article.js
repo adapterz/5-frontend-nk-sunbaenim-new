@@ -1,19 +1,5 @@
 //052322 HTTP METHOD, url 모듈화
-import { httpMethod, defaultUrl, status } from "./common.js";
-
-//052422 REQUEST MODULE 모듈화
-async function request(path, method, body, headers = {}) {
-  const url = defaultUrl + '/' + path;
-  const options = {
-    method: method,
-    headers: {
-      ...headers,
-    },
-    body: JSON.stringify(body),
-  };
-  const res = await fetch(url, options);
-  return res;
-}
+import { httpMethod, request } from "./common.js";
 
 // 051322
 // 게시글 생성 request
@@ -100,7 +86,7 @@ function reqDeleteArticle() {
 // TODO: 백엔드 API 상에서 게시물 상세 조회 API 작동 시 조회수도 같이 올라가도록 설계 되어 있다. 조회수를 올리려면 req.cookie를 확인할 수 있어야 하는데, 이 방법 보완이 필요.
 function reqGetArticle() {
   // dummy data
-  const article_id = 157;
+  const article_id = 154;
 
   try{
     //052422 async await 도입
@@ -158,7 +144,6 @@ function reqGetMyArticles() {
     console.log(error);
   }
 }
-
 
 // 22.05.13
 // 게시글 좋아요 생성 또는 취소 request
