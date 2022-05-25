@@ -8,8 +8,6 @@ async function request(path, method, body, headers = {}) {
   const options = {
     method: method,
     headers: {
-      // FIXME: GET 요청일 때 아래 헤더를 제외해야 한다. 고칠 방법 생각 필요.
-      //"Content-Type": "application/json",
       ...headers,
     },
     body: JSON.stringify(body),
