@@ -1,0 +1,135 @@
+/* 220519 푸터 고정을 위해 추가 */
+html, body {
+  height: 100%;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+#wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+/* header: 서비스 네비게이션 바 */
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  height: 60px;
+  font-size: 1rem;
+}
+
+.navBarIcons {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 헤더 주요 메뉴들(Home, About us, Service, Forum) 사이의 마진 */
+.navBarIcon {
+  margin: 30px;
+}
+
+/* 모바일 화면으로 줄어들었을 때 나타나는 토글 버튼  */
+.navbarToggleBtn {
+  display: none;
+  position: absolute;
+}
+
+/* 로그인 버튼 */
+/* 로그인 버튼의 레이아웃 스타일 */
+.loginBtn {
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: rgb(173, 201, 241);
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(109, 165, 245);
+}
+/* 로그인 버튼의 텍스트 스타일 */
+.loginBtnInnerText {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(109, 165, 245);
+}
+/* 헤더 메뉴 버튼 태그가 링크 태그여서 발생하는 속성 초기화 처리 */
+.navBarInnerText {
+  text-decoration: none;
+  color: black;
+}
+
+/* 구분선 */
+.line {
+  width: 90%;
+  color: lightgrey;
+}
+
+/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
+@media screen and (max-width: 750px) {
+  .navBarIcons {
+    display: none;
+  }
+  .loginBtn {
+    display: none;
+  }
+}
+
+.welcomeSection{
+  display: grid;
+  margin: 130px auto 0px;
+  place-items: center;
+  min-height: 100%;
+}
+
+.welcomeMessage{
+  width: 80%;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nextStepBtns{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+
+
+.backToHomeBtn, .backToLoginBtn{
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  margin: 10px 30px;
+  padding-top: 15px;
+  width: 300px;
+  height: 60px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: rgb(82, 146, 238);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.backToHomeBtn:hover, .backToLoginBtn:hover{
+  background-color: rgb(32, 49, 118);
+  color: white;
+}
+
+
+
+/* footer 섹션 */
+.footer {
+  height: 60px;
+  position: relative;
+  transform: translateY(-100%);
+  background-color: rgb(32, 49, 118);
+}

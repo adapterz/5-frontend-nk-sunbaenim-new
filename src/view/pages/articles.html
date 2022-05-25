@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 도입 -->
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="articles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>articles | SUNBAENIM</title>
+  </head>
+  <body>
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+          <a href="" class="header__icon" aria-label="홈화면">HOME</a>
+          <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+          <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+          <a href="" class="header__icon" aria-label="게시판">FORUM</a>
+          <section class="header__icon">
+            <section class="header__icon--dropdown">
+              <button type="button" class="header__icon--dropdown-notification"></button>
+              <div class="header__icon--dropdown-contents">
+                <a href="#" aria-label="댓글 달림 알람" class="header__icon--dropdown-content"
+                  >You've got a comment</a
+                >
+                <a href="#" aria-label="좋아요 알람" class="header__icon--dropdown-content"
+                  >You've got a likes</a
+                >
+              </div>
+            </section>
+            <section class="header__icon--dropdown">
+              <button type="button" class="header__icon--dropdown-account"></button>
+              <div class="header__icon--dropdown-contents">
+                <a href="#" aria-label="내 계정" class="header__icon--dropdown-content"
+                  >My page</a
+                >
+                <a href="#" aria-label="게시물 작성하기" class="header__icon--dropdown-content"
+                  >Create Post</a
+                >
+                <a href="#" aria-label="북마크" class="header__icon--dropdown-content"
+                  >Bookmark</a
+                >
+              </div>
+            </section>
+          </section>
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr/>
+    <section class="figure">
+      <div class="wrapper">
+        <img class="figure__img" src="article_header.jpg">
+      </div>
+    </section>
+    <section class="main">
+      <div class="wrapper">
+        <h1 class="heading-tag">articles navigation section</h1>
+        <nav class="main-nav">
+          <h1 class="main-nav__title">Topics 🗣️</h1>
+          <a href="#" class="main-nav__icon active">All Listings </a>
+          <a href="#" class="main-nav__icon">IT Conference</a>
+          <a href="#" class="main-nav__icon">Project Promo</a>
+          <a href="#" class="main-nav__icon">Study Gathering</a>
+          <a href="#" class="main-nav__icon">Education</a>
+          <form class="main-nav__icon--search">
+            <input class="main-nav__icon--search-text" type="text" placeholder="Keywords">
+            <input class="main-nav__icon--search-btn" type="submit" value="Search">
+          </form>
+        </nav>
+        <section class="main-list">
+          <h1 class="heading-tag">article list section</h1>
+          <header class="main-list__header">
+            <a href="#" class="main-list__header--create-btn">Create Post</a>
+            <select name="" class="main-list__header--sort">
+              <option value="recent">Recently created</option>
+              <option value="like">Most Likes</option>
+              <option value="comment">Most Comments</option>
+              <option value="view">Most Views</option>
+            </select>
+          </header>
+          <ul class="main-list__articles">
+            <li class="main-list__article">
+              <div class="main-list__article--content">
+                <a href="#" class="main-list__article--title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="main-list__article--reactions">
+                  <div class="likes"><img />4K Likes</div>
+                  <div class="comments"><img />5 Comments</div>
+                  <div class="date">Mar 18, 2022</div>
+                </div>
+              </div>
+              <span class="main-list__article--nickname">Nickname</span>
+              <button class="main-list__article--user-img"></button>
+            </li>
+          </ul>
+          <!-- <nav class="main-list__page">
+            <h1 class="heading-tag">pagination</h1>
+            <a class="main-list__page--number" href="#">&laquo;</a>
+            <a class="main-list__page--number active" href="#">1</a>
+            <a class="main-list__page--number" href="#">2</a>
+            <a class="main-list__page--number" href="#">3</a>
+            <a class="main-list__page--number" href="#">4</a>
+            <a class="main-list__page--number" href="#">5</a>
+            <a class="main-list__page--number" href="#">&raquo;</a>
+          </nav> -->
+          <div class="bottom">
+          </div>
+        </section>
+      </div>
+    </section>
+    <script type="module" src="get_articles.js"></script>
+  </body>
+</html>

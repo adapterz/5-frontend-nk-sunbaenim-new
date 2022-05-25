@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize.css 도입 -->
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="../styles/mypage_posting.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>mypage | SUNBAENIM</title>
+  </head>
+  <body>
+    <!-- 서비스 네비게이션 바 -->
+    <header class="navBar" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <section class="navBarIcons">
+          <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+          <a href="" class="navBarIcon" aria-label="홈화면">HOME</a>
+          <a href="" class="navBarIcon" aria-label="운영진 소개">ABOUT US</a>
+          <a href="" class="navBarIcon" aria-label="서비스 소개">SERVICE</a>
+          <a href="" class="navBarIcon" aria-label="게시판">FORUM</a>
+          <section class="loggedInNav">
+            <div class="dropdown">
+              <button type="button" class="notification"></button>
+              <div class="dropdownContents">
+                <a href="#" aria-label="댓글 달림 알람" class="dropdownContent"
+                  >You've got a comment</a
+                >
+                <a href="#" aria-label="좋아요 알람" class="dropdownContent"
+                  >You've got a likes</a
+                >
+              </div>
+            </div>
+            <div class="dropdown">
+              <button type="button" class="account"></button>
+              <div class="dropdownContents">
+                <a href="#" aria-label="내 계정" class="dropdownContent"
+                  >My page</a
+                >
+                <a href="#" aria-label="게시물 작성하기" class="dropdownContent"
+                  >Create Post</a
+                >
+                <a href="#" aria-label="북마크" class="dropdownContent"
+                  >Bookmark</a
+                >
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr class="line" />
+    <section class="mainArea">
+      <div class="wrapper">
+      <h1 class="headingTag">Mypage section</h1>
+      <nav class="navArea">
+        <h1 class="navTitle">My page 🙋</h1>
+        <div class="navlists">
+            <a href="#" class="navlist active">My postings </a>
+            <a href="#" class="navlist">My comments</a>
+            <a href="#" class="navlist">Saved postings</a>
+            <a href="#" class="navlist">Account setting</a>
+        </div>
+      </nav>
+      <section class="listArea">
+        <h1 class="headingTag">My postings section</h1>
+        <img
+          class="listImg"
+          src="../../../src/assets/images/people-g2ad5bfd8b_1280.jpg"
+        />
+        <header class="listHeader">
+          <span class="listHeaderTitle">My postings 📓</span>
+          <select name="" id="sorting">
+            <option value="recent">Recently created</option>
+            <option value="like">Most Likes</option>
+            <option value="comment">Most Comments</option>
+            <option value="view">Most Views</option>
+          </select>
+        </header>
+        <section class="listSection">
+          <h1 class="headingTag">My postings lists</h1>
+          <!-- 052022 콘텐츠가 늘어날 수록 브라우저도 늘어나야 하는데, 중간에 끊기는 상황 발생 -->
+          <ul class="articles">
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+            <li class="article">
+              <div class="articleContent">
+                <a href="#" class="title"
+                  >The Rise of the Developer Community - Free Virtual Meetup -
+                  Mar 24 1pm ET (GMT -4) Looking ...</a
+                >
+                <div class="reactions">
+                  <div class="likes"><img /> 4K Likes</div>
+                  <div class="comments"><img /> 5 Comments</div>
+                </div>
+              </div>
+              <div class="date">Mar 18, 2022</div>
+              <button class="deleteBtn" type="submit">Delete</button>
+              <button class="editBtn" type="submit">Edit</button>
+            </li>
+          </ul>
+        </section>
+        <nav class="pagination">
+          <h1 class="headingTag">Pagination</h1>
+          <a class="pageNum" href="#">&laquo;</a>
+          <a class="pageNum active" href="#">1</a>
+          <a class="pageNum" href="#">2</a>
+          <a class="pageNum" href="#">3</a>
+          <a class="pageNum" href="#">4</a>
+          <a class="pageNum" href="#">5</a>
+          <a class="pageNum" href="#">&raquo;</a>
+        </nav>
+        <div class="bottom">
+        </div>
+      </div>
+    </section>
+  </section>
+  </body>
+</html>
