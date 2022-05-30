@@ -5,6 +5,25 @@ export const httpMethod = {
   delete: "DELETE",
 };
 
+const defaultUrl = "http://localhost:8080"
+
+export const request = (async (path, method, body, headers = {}) => {
+  const url = defaultUrl + '/' + path;
+  const options = {
+    method: method,
+    // cors 문제 해결을 위해 추가
+    credential: "include",
+    headers: {
+      ...headers,
+    },
+    body: JSON.stringify(body),
+  };
+
+  const res = await fetch(url, options);
+  return res;
+})
+
+// FIXME: 상태코드 모듈화 어떻게 적용할까..
 export const status = ((res) => {
   let data = ""
   if(res.status === 204){
@@ -23,6 +42,3 @@ export const status = ((res) => {
     throw new Error(res.status)
   }
 })
-
-
-export const defaultUrl = "http://localhost:8080"
