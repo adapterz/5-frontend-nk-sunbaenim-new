@@ -5,10 +5,11 @@ export const httpMethod = {
   delete: "DELETE",
 };
 
-const defaultUrl = "http://localhost:8080"
+export const server = "http://localhost:8080"
+export const domain = "http://localhost:3000"
 
-export const request = (async (path, method, body, headers = {}) => {
-  const url = defaultUrl + '/' + path;
+export const request = async (path, method, body, headers = {}) => {
+  const url = server + '/' + path;
   const options = {
     method: method,
     // cors 문제 해결을 위해 추가
@@ -18,10 +19,10 @@ export const request = (async (path, method, body, headers = {}) => {
     },
     body: JSON.stringify(body),
   };
-
+  console.log(url);
   const res = await fetch(url, options);
   return res;
-})
+}
 
 // FIXME: 상태코드 모듈화 어떻게 적용할까..
 export const status = ((res) => {
