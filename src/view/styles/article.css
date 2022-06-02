@@ -261,7 +261,11 @@ hr {
 .article__comment {
   display: flex;
   column-gap: 20px;
-  margin: 10px auto;
+  margin: 20px;
+}
+
+.article__comment--contents > span {
+  padding-right: 20px;
 }
 
 .article__comment--user-img {
@@ -269,9 +273,21 @@ hr {
   height: 45px;
 }
 
+.article__comment--reply-btn {
+  border-style: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .article__comment--more-btn {
   margin-top: 30px;
   height: 30px;
+}
+
+.article__comment--reply-section {
+  display: none;
+  column-gap: 20px;
+  margin: 20px auto 10px;
 }
 
 .article__next {

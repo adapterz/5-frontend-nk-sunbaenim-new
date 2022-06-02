@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- normalize.css 도입 -->
-    <link rel="stylesheet" href="../styles/normalize.css" />
-    <link rel="stylesheet" href="../styles/mypage_posting.css" />
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/mypage_posting.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <!-- 헤더 내 아이콘을 추가하기 위해 부트스트랩 설치 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>mypage | SUNBAENIM</title>
   </head>
   <body>
@@ -27,7 +29,8 @@
           <a href="" class="navBarIcon" aria-label="게시판">FORUM</a>
           <section class="loggedInNav">
             <div class="dropdown">
-              <button type="button" class="notification"></button>
+              <i class="bi bi-bell"></i>
+              <!-- <button type="button" class="notification"></button> -->
               <div class="dropdownContents">
                 <a href="#" aria-label="댓글 달림 알람" class="dropdownContent"
                   >You've got a comment</a
@@ -38,7 +41,8 @@
               </div>
             </div>
             <div class="dropdown">
-              <button type="button" class="account"></button>
+              <i class="bi bi-person-circle"></i>
+              <!-- <button type="button" class="account"></button> -->
               <div class="dropdownContents">
                 <a href="#" aria-label="내 계정" class="dropdownContent"
                   >My page</a
