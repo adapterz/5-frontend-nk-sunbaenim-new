@@ -2,45 +2,83 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* 051922 footer를 고정하기 위한 방법으로 찾아보았습니다만, 여전히 적용되지 않는 것을 발견하였습니다.  */
-#wrapper {
-  height: auto;
-  min-height: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
 }
 
-/* header: 서비스 네비게이션 바 */
-.navBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* 051922 폰트 크기나 컴포넌트 간 마진 설정 값 등 다소 패턴화 할 수 있는 부분에 대해서 상수화 하는 것이 좋을까요?
-  찾아보니 var()라는 속성이 css에도 있어 여쭤봅니다.  */
-  margin-top: 10px;
-  height: 60px;
-  font-size: 1rem;
+body {
+  background-color: #e5e5e5;
 }
 
-.navBarIcons {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
-/* 헤더 주요 메뉴들(Home, About us, Service, Forum) 사이의 마진 */
-.navBarIcon {
-  margin: 30px;
+button, input[type=submit] {
+  border-style: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* 모바일 화면으로 줄어들었을 때 나타나는 토글 버튼  */
-.navbarToggleBtn {
+input {
+  border-style: none;
+  border-radius: 10px;
+}
+
+/* 각 section 구분선 */
+hr {
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 052022 section, nav, article 태그 사용 시 헤딩 테그 브라우저에서 숨김 처리 */
+.heading-tag {
   display: none;
-  position: absolute;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* >> header */
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.header .wrapper {
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.header__icon {
+  font-size: 1rem;
 }
 
 /* 로그인 버튼 */
 /* 로그인 버튼의 레이아웃 스타일 */
-.loginBtn {
+.header__login {
   padding: 0.5rem 1rem;
   border: 2px solid;
   border-color: rgb(173, 201, 241);
@@ -49,98 +87,67 @@
   color: rgb(109, 165, 245);
 }
 /* 로그인 버튼의 텍스트 스타일 */
-.loginBtnInnerText {
-  /* 160px */
+.header__login-txt {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
   color: rgb(109, 165, 245);
 }
-/* 헤더 메뉴 버튼 태그가 링크 태그여서 발생하는 속성 초기화 처리 */
-.navBarInnerText {
-  text-decoration: none;
-  color: black;
-}
 
-/* 구분선 */
-.line {
-  width: 90%;
-  color: lightgrey;
-}
-
-/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
-@media screen and (max-width: 750px) {
-  .navBarIcons {
-    display: none;
-  }
-  .loginBtn {
-    display: none;
-  }
-}
-
-/* section 태그 구분을 위한 헤딩 태그 초기화 */
-.headingTag {
-  display: none;
-}
-
-.formCard {
+.form {
   width: 480px;
-  /* 051922 컴포넌트를 브라우저 중앙에 위치하고 싶은데, display:flex나 grid말고도 아래와 같이 설정하는 방법은 현업에서 어떻게 생각할까요..? 너무 주먹구구 식으로 반영하는 것 같아 고민이 되어 여쭤봅니다.  */
   margin: 50px auto;
 }
 
-.formCardHeader {
+.form .wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.form__header {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
 }
 
-.formCardFormat {
-  display: grid;
+.form__section {
+  display: flex;
+  flex-direction: column;
   height: 500px;
-  margin: 40px auto;
-  justify-content: center;
   align-items: center;
-  justify-items: center;
   background-color: rgb(173, 201, 241);
   border-radius: 20px;
+  justify-content: space-evenly;
 }
 
-.formMessages {
+.form__section__header {
   text-align: center;
 }
-.signUpWelcome {
+
+.welcome {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.signUpGuide {
+
+.guide {
   font-size: 1.3rem;
   font-weight: bold;
 }
 
-.signUpForm{
-  margin-bottom: 50px;
-}
-.signUpInputs {
-  width: 300px;
-}
-
-.email, .password, .passwordCheck{
+.email, .password, .password-check{
   width: 290px;
   height: 50px;
   font-size: 20px;
-  margin-bottom: 20px;
   border-style: none;
   border-radius: 10px;
-  padding : 0 0 0 10px;
 }
 
-.signUpInputs > .termsOfService{
+.terms-of-service{
   text-align: center;
   vertical-align: middle;
-  margin-bottom: 10px;
 }
 .checkbox{
   text-align: center;
@@ -160,7 +167,6 @@
   border-style: none;
   border-radius: 10px;
   background-color: rgb(82, 146, 238);
-  margin-top: 10px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -180,6 +186,13 @@ input::placeholder {
 .footer {
   width: 100%;
   height: 60px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
   background-color: rgb(32, 49, 118);
+  color: rgb(215, 215, 215);
+}
+
+.footer .wrapper {
+  justify-content: center;
+  opacity: 0.6;
 }

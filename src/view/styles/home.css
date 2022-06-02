@@ -2,49 +2,133 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* 051922 footer 고정을 위해 추가 */
-html, body {
+html,
+body {
   height: 100%;
-}
-/* 051922 footer 고정을 위해 추가 */
-#wrapper {
-  position: relative;
-  min-height: 100%;
-  padding-bottom: 60px;
-}
-
-
-/* header: 서비스 네비게이션 바 */
-.navBar {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-  height: 60px;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+body {
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border-style: none;
+  border-radius: 10px;
+}
+
+/* 각 section 구분선 */
+hr {
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* 052022 section, nav, article 태그 사용 시 헤딩 테그 브라우저에서 숨김 처리 */
+.heading-tag {
+  display: none;
+}
+
+/* >> header */
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
   font-size: 1rem;
 }
 
-.navBarIcons {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.header .wrapper {
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
 }
 
-/* 헤더 주요 메뉴들(Home, About us, Service, Forum) 사이의 마진 */
-.navBarIcon {
-  margin: 30px;
+/* header 알람, 내 계정 드롭다운 메뉴 */
+.header__icon--dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-/* 모바일 화면으로 줄어들었을 때 나타나는 토글 버튼  */
-.navbarToggleBtn {
+.header__icon--dropdown-contents {
   display: none;
   position: absolute;
+  padding: 10px 0px 10px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(109, 165, 245);
+  min-width: 150px;
+  z-index: 1;
 }
 
-/* 로그인 버튼 */
+.header__icon--dropdown-content {
+  color: black;
+  width: 100px;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+
+.header__icon--dropdown-content:hover {
+  background-color: rgb(109, 165, 245);
+  border-radius: 10px;
+}
+
+.header__icon--dropdown:hover .header__icon--dropdown-contents {
+  display: grid;
+  justify-content: center;
+}
+
+/* header 알람 아이콘 */
+.header__icon--dropdown-notification {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* header 내 계정 아이콘 */
+.header__icon--dropdown-account {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  border-color: rgb(109, 165, 245);
+  border-style: solid;
+  cursor: pointer;
+}
+
+/* 로그인 전 버튼 */
 /* 로그인 버튼의 레이아웃 스타일 */
-.loginBtn {
+.header__log-out {
+  display: block;
   padding: 0.5rem 1rem;
   border: 2px solid;
   border-color: rgb(173, 201, 241);
@@ -53,34 +137,17 @@ html, body {
   color: rgb(109, 165, 245);
 }
 /* 로그인 버튼의 텍스트 스타일 */
-.loginBtnInnerText {
+.header__log-out-txt {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
   color: rgb(109, 165, 245);
 }
-/* 헤더 메뉴 버튼 태그가 링크 태그여서 발생하는 속성 초기화 처리 */
-.navBarInnerText {
-  text-decoration: none;
-  color: black;
-}
 
-/* 구분선 */
-.line {
-  width: 90%;
-  color: lightgrey;
+/* 로그인 성공 후 버튼 */
+.header__log-in {
+  display: none;
 }
-
-/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
-@media screen and (max-width: 750px) {
-  .navBarIcons {
-    display: none;
-  }
-  .loginBtn {
-    display: none;
-  }
-}
-
 
 /* figure: 홈페이지의 대표 이미지 관련 스타일*/
 .figureSection {
@@ -219,7 +286,7 @@ html, body {
   background-color: rgb(220, 166, 170);
 }
 .fieldItem_image {
-  background-image: url("../../../src/assets/images/people-g2ad5bfd8b_1280.jpg");
+  background-image: url("field.jpg");
   background-size: cover;
 }
 .fieldItem_recommendText {
