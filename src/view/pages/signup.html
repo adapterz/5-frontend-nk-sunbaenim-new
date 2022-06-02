@@ -15,117 +15,89 @@
     <title>signup | SUNBAENIM</title>
   </head>
   <body>
-    <section id="wrapper">
-      <header class="navBar" aria-label="서비스 로고 및 상단 메뉴바">
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
-        <ul class="navBarIcons">
-          <li class="navBarIcon">
-            <a href="" class="navBarInnerText" aria-label="홈화면">HOME</a>
-          </li>
-          <li class="navBarIcon">
-            <a href="" class="navBarInnerText" aria-label="운영진 소개"
-              >ABOUT US</a
-            >
-          </li>
-          <li class="navBarIcon">
-            <a href="" class="navBarInnerText" aria-label="서비스 소개"
-              >SERVICE</a
-            >
-          </li>
-          <li class="navBarIcon">
-            <a href="" class="navBarInnerText" aria-label="게시판">FORUM</a>
-          </li>
-        </ul>
-        <button class="loginBtn">
-          <a
-            href="login.html"
-            class="loginBtnInnerText"
-            aria-label="로그인 버튼"
+        <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
+        <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+        <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
+        <button class="header__login">
+          <a href="/login" class="header__login-txt" aria-label="로그인 버튼"
             >LOG IN</a
           >
         </button>
-        <!--모바일 화면으로 줄어들었을 때 나타나는 토글 버튼 -->
-        <a href="#" class="navbarToggleBtn">
-          <i class="fas fa-bars"></i>
-        </a>
-      </header>
-      <!-- 섹션 구분선 -->
-      <hr class="line" />
-      <section class="formCard" aria-label="회원가입 폼 카드">
-        <h1 class="headingTag">Signup process #1</h1>
-        <header class="formCardHeader" aria-label="회원가입 폼 제목">
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr/>
+    <section class="form" aria-label="회원가입 폼 카드">
+      <div class="wrapper">
+        <h1 class="heading-tag">Signup process #1</h1>
+        <header class="form__header" aria-label="회원가입 폼 제목">
           Welcome to SUNBAENIM
         </header>
-        <section class="formCardFormat">
-          <header class="formMessages">
-            <div class="signUpWelcome" aria-label="회원가입 안내 문구">
+        <section class="form__section">
+          <header class="form__section__header">
+            <div class="welcome" aria-label="회원가입 안내 문구">
               Create Account
             </div>
-            <div class="signUpGuide" aria-label="회원가입 안내 문구">
+            <div class="guide" aria-label="회원가입 안내 문구">
               Please input your new account information
             </div>
           </header>
-          <form action="" method="POST" class="signUpForm" id="signUp">
-            <div class="signUpInputs">
-              <input
-                type="email"
-                required
-                placeholder="example@sunbaenim.com"
-                aria-label="이메일 입력창"
-                class="email"
-                id="email"
-              />
-            </div>
-            <div class="signUpInputs">
-              <input
-                type="password"
-                required
-                placeholder="Password"
-                minlength="5"
-                aria-label="비밀번호 입력창"
-                class="password"
-                id="pwd"
-              />
-            </div>
-            <div class="signUpInputs">
-              <input
-                type="password"
-                required
-                placeholder="Password"
-                minlength="5"
-                aria-label="비밀번호 확인 입력창"
-                class="passwordCheck"
-                id="pwd_check"
-              />
-            </div>
-            <div class="signUpInputs">
-              <div class="termsOfService">
-                <input
-                  type="checkbox"
-                  aria-label="회원가입 이용약관 동의"
-                  id="checkbox"
-                  class="checkbox"
-                />
-                <label class="label" for="checkbox"
-                  >I agree to the terms of the service</label
-                >
-              </div>
-            </div>
-            <!-- 051922 submit 이후 다음 페이지로 넘어가게 하려면 서버에서 res.render로 처리해주는걸까요?  -->
-            <!-- 052422 서버에서는 페이지 파일을 전달하지 않는다. 클라이언트 서버에서 처리할 방법을 고민해야 함 -->
-            <div class="signUpInputs">
-                <input
-                type="submit"
-                value="Continue"
-                aria-label="회원가입 계속하기 버튼"
-                class="submitBtn"
-              />
-            </div>
-          </form>
+          <input
+            type="email"
+            required
+            placeholder="example@sunbaenim.com"
+            aria-label="이메일 입력창"
+            class="email"
+            id="email"
+          />
+          <input
+            type="password"
+            required
+            placeholder="Password"
+            minlength="5"
+            aria-label="비밀번호 입력창"
+            class="password"
+            id="pwd"
+          />
+          <input
+            type="password"
+            required
+            placeholder="Password"
+            minlength="5"
+            aria-label="비밀번호 확인 입력창"
+            class="password-check"
+            id="pwd_check"
+          />
+          <div class="terms-of-service">
+            <input
+              type="checkbox"
+              aria-label="회원가입 이용약관 동의"
+              id="checkbox"
+              class="checkbox"
+            />
+            <label class="label" for="checkbox"
+              >I agree to the terms of the service</label
+            >
+          </div>
+          <input
+            type="submit"
+            value="Continue"
+            aria-label="회원가입 계속하기 버튼"
+            class="submitBtn"
+            id="submit"
+          />
         </section>
-      </section>
+      </div>
     </section>
-    <footer class="footer"></footer>
-    <script type="module" src="user.js"></script>
+    <footer class="footer">
+      <div class="wrapper">
+        <p class="footer__info">© 2022 Sunbaenim, LLC. All rights reserved.</p>
+      </div>
+    </footer>
+    <script type="module" src="./sign_up.js"></script>
   </body>
 </html>
