@@ -1,13 +1,9 @@
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require("express");
+const path = require("path");
 const app = express();
 const PORT = 3000;
 
 // express.static 이 디렉토리에 있는 정적 파일은 호출되면 그대로 전송해줘! 라는 의미
-
 app.use(express.static('src/model'));
 app.use(express.static('src/controller'));
 app.use(express.static('src/view/pages'));
@@ -67,8 +63,7 @@ app.get('/articles/:article_id', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/view/pages/article.html'));
 });
 
+
 app.listen(PORT, function () {
   console.log("server start 3000");
 });
-
-export default app;
