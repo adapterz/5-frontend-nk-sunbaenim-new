@@ -13,7 +13,7 @@ export const request = async (path, method, body, headers = {}) => {
   const options = {
     method: method,
     // cors 문제 해결을 위해 추가
-    credential: "include",
+    //credentials: "include",
     headers: {
       ...headers,
     },
