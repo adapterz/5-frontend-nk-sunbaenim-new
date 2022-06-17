@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 051922 cdn 모듈을 도입하기보다 normalize.css 파일을 만들어 도입 -->
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 메인화면 서비스 이름 -->
+    <title>main | SUNBAENIM</title>
+  </head>
+  <body>
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+        <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
+        <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
+        <button class="header__log-out">
+          <a href="/login" class="header__log-out-txt" aria-label="로그인 버튼"
+            >LOG IN</a
+          >
+        </button>
+        <!-- <section class="header__log-in">
+          <section class="header__icon--dropdown">
+            <button
+              type="button"
+              class="header__icon--dropdown-notification"
+            ></button>
+            <div class="header__icon--dropdown-contents">
+              <a
+                href="#"
+                aria-label="댓글 달림 알람"
+                class="header__icon--dropdown-content"
+                >You've got a comment</a
+              >
+              <a
+                href="#"
+                aria-label="좋아요 알람"
+                class="header__icon--dropdown-content"
+                >You've got a likes</a
+              >
+            </div>
+          </section>
+          <section class="header__icon--dropdown">
+            <button
+              type="button"
+              class="header__icon--dropdown-account"
+            ></button>
+            <div class="header__icon--dropdown-contents">
+              <a
+                href="/myposting"
+                aria-label="내 계정"
+                class="header__icon--dropdown-content"
+                >My page</a
+              >
+              <a
+                href="/create"
+                aria-label="게시물 작성하기"
+                class="header__icon--dropdown-content"
+                >Create Post</a
+              >
+              <a
+                href=""
+                aria-label="로그아웃"
+                class="header__icon--dropdown-content"
+                id="logout"
+                >Log out</a
+              >
+            </div>
+          </section>
+        </section> -->
+      </div>
+    </header>
+    <!-- 섹션 구분선 -->
+    <hr />
+    <!-- 서비스 기본 이미지 -->
+    <section class="figure" aria-label="홈페이지의 대표 이미지">
+      <div class="wrapper">
+        <span class="figure__message"
+          >Are you<br />Looking for<br />SUNBAENIM?</span
+        >
+        <img class="figure__img" src="home.jpg" alt="main image" />
+      </div>
+    </section>
+    <!-- 섹션 구분선 -->
+    <hr />
+    <!-- 서비스 소개 및 특징 설명 섹션 -->
+    <section class="service-info" aria-label="서비스 소개 섹션">
+      <div class="wrapper">
+        <article class="service-info__about" aria-label="서비스 요약 소개">
+          <h1 class="service-info__about__title">SUNBAENIM?</h1>
+          <p class="service-info__about__text">
+            Beyond relying solely on the network, <br />
+            you can reach the information and experience you want.<br />
+            Now, start a new conversation for your career.
+          </p>
+        </article>
+        <article
+          class="service-info__balloons"
+          aria-label="서비스 세부 특징 소개"
+        >
+          <p class="service-info__balloon__right">1:1 Connection in 20mins</p>
+          <p class="service-info__balloon__left">
+            Connect with the IT partner you want
+          </p>
+          <p class="service-info__balloon__right">Anonymous is guaranteed</p>
+        </article>
+      </div>
+    </section>
+    <!-- 서비스 주요 카테고리 섹션 -->
+    <section class="field" aria-label="서비스 주요 카테고리 섹션">
+      <div class="wrapper">
+        <h1 class="field__title">SUNBAENIM CAREER CATEGORIES</h1>
+        <article class="field__containers">
+          <div class="field__container__frontend">Front-End</div>
+          <div class="field__container__backend">Back-End</div>
+          <div class="field__container__fullstack">Full-Stack</div>
+          <div class="field__container__ios">iOS</div>
+          <div class="field__container__android">Android</div>
+          <div class="field__container__ai">AI</div>
+          <div class="field__container__image"></div>
+          <div class="field__container__recommendText">
+            Recommend<br />SUNBAENIM for you
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- 리뷰어의 서비스 리뷰 섹션 -->
+    <section class="review" aria-label="서비스 리뷰 섹션">
+      <div class="wrapper">
+        <h1 class="review__title">Review of Users</h1>
+        <section class="review__slide" aria-label="서비스 리뷰 슬라이드">
+          <!-- <button
+            id="left"
+            onclick=""
+            class="review__slide__btn"
+            aria-label="슬라이드 버튼"
+          >
+            &#8249;
+          </button> -->
+          <article class="review__article" aria-label="유저의 리뷰 아티클">
+            <img
+              class="review__article__image"
+              src="reviewer.png"
+              alt="reviewer image"
+            />
+            <div>
+              <p class="review__article__company">Test Cooperation</p>
+              <p class="review__article__profile">
+                Front-end Engineer, <br />
+                Ms. Nana Rodregez
+              </p>
+            </div>
+            <p class="review__article__text">
+              Thank you for the service! <br />It was very helpful. I'm thinking
+              about changing my career, and thank you so much for the sweet
+              support that encouraging me. Challenging in any profession....
+            </p>
+          </article>
+          <!-- <button
+            id="right"
+            onclick=""
+            class="review__slide__btn"
+            aria-label="슬라이드 버튼"
+          >
+            &#8250;
+          </button> -->
+        </section>
+      </div>
+    </section>
+    <!-- footer : 저작권 정보, 회사 정보 삽입 예정 -->
+    <footer class="footer">
+      <div class="wrapper">
+        <p>© 2022 Sunbaenim, LLC. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
