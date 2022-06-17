@@ -19,8 +19,8 @@
       <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
         <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
-        <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
-        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
         <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
         <button class="header__login">
           <a href="/login" class="header__login-txt" aria-label="로그인 버튼"
@@ -30,7 +30,7 @@
       </div>
     </header>
     <!-- 섹션 구분선 -->
-    <hr />
+    <hr>
     <section class="profile" aria-label="프로필 등록 폼 카드">
       <div class="wrapper">
         <h1 class="heading-tag">Signup process #2</h1>
@@ -39,38 +39,35 @@
         </header>
         <section class="profile__section">
           <header class="profile__section-header">Create Your Profile</header>
-          <img id="output" src="#">
-          <input type="file" accept="image/*" id="img" onchange="loadFile(event)"/>
-          <input
-            type="submit"
-            value="Submit"
-            class="submit-btn"
-            id="submitFile"
-          />
-          <label for="nickname">Nickname</label>
-          <input
+          <img id="output" src="/user_profile.png">
+          <input type="file" accept=".jpg, .jpeg, .png" id="img" onchange="loadFile(event)"/>
+          <section class="profile__section-nickname">
+            <input
             type="text"
             required
-            placeholder="Nickname"
+            placeholder="Input your nickname"
             minlength="2"
             aria-label="닉네임 입력창"
             class="nickname"
             id="nickname"
-          />
-          <!-- 051922 유효성 검사 시 tag는 html안에 작성해두도록 한다 -->
-          <span class="nickname-validation"
-            >The Nickname is already existed</span
-          >
-          <span class="nickname-empty"
-            >Please input your nickname</span
-          >
+            />
+            <div class="error-empty"
+              >Please input your nickname</div>
+          </section>
           <input
             type="submit"
             value="Submit"
-            aria-label="닉네임 유효성 검사"
             class="submit-btn"
-            id="submitNickname"
+            id="submit-btn"
           />
+          <aside id="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p><strong>Already Existed Nickname.</strong><br>
+                Please choose another nickname for your account 😉
+              </p>
+            </div>
+          </aside>
         </section>
       </div>
     </section>
@@ -80,8 +77,8 @@
       </div>
     </footer>
     <script>
-      var loadFile = function(event) {
-        var output = document.getElementById('output');
+      const loadFile = function(event) {
+        let output = document.getElementById('output');
         output.src = URL.createObjectURL(event.target.files[0]);
         output.onload = function() {
           URL.revokeObjectURL(output.src);

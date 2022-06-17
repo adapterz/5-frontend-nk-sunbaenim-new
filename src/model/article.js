@@ -1,27 +1,29 @@
 //052322 HTTP METHOD, url 모듈화
 import { httpMethod, request } from "./common.js";
+export { reqCreateArticle, reqGetMyArticles, reqGetArticle, reqGetArticles, reqLikes, reqGetLikes, reqDeleteArticle, reqEditArticle };
 
 // 051322
 // 게시글 생성 request
 // URL : /articles
-async function reqCreateArticle() {
+async function reqCreateArticle(title, content, category_id, is_published) {
   // dummy data
   const body = {
-    // 게시물 작성자의 Index
-    user_id: 51,
-    title: "fetch test 2",
-    content: "페치 게시물 테스트용 본문 더미 데이터입니다.",
-    // 게시물의 주제를 카테고리화한 식별 숫자.(예: 스터디 모임 카테고리일 경우 숫자 4로 분류)
-    category_id: 1,
-    // is_publish이 1일 경우 발행된 게시물, 0일 경우 미발행 게시물을 말한다.
-    is_published: 1,
+    title: title,
+    content: content,
+    category_id: category_id,
+    is_published: is_published,
   };
 
   try{
     //052422 async await 도입
     const response = await request(`articles`, httpMethod.post, body, {"Content-Type": "application/json"});
-    const data = await response.json();
-    return data;
+    if (response.status === 201) {
+      const data = response.json();
+      console.log(data);
+      return data;
+    } else {
+      throw new Error();
+    }
   } catch(error){
     console.log(error);
   }
@@ -30,26 +32,23 @@ async function reqCreateArticle() {
 // 22.05.13
 // 게시글 수정 request
 // URL : /articles
-async function reqEditArticle() {
-  // dummy data
+async function reqEditArticle(article_id, title, content, category_id) {
   const body = {
-    // 작성자의 Index
-    user_id: 64,
     // 게시글의 Index
-    article_id: 158,
+    article_id: article_id,
     // 수정할 게시글의 제목
-    title: "fetch edit test 2",
+    title: title,
     // 수정할 게시글의 본문
-    content: "페치 게시글 수정 테스트용 본문 더미 데이터입니다.",
+    content: content,
     // 수정할 게시글의 주제 카테고리
-    category_id: 2,
+    category_id: category_id,
   };
 
   try{
     //052422 async await 도입
     const response = await request(`articles`, httpMethod.patch, body, {"Content-Type": "application/json"});
-    const data = await response.json();
-    return data;
+    console.log(response);
+    return response
   } catch(error){
     console.log(error);
   }
@@ -58,23 +57,15 @@ async function reqEditArticle() {
 // 22.05.13
 // 게시글 삭제 request
 // URL : /articles/:article_id
-async function reqDeleteArticle() {
-  // dummy data
-  // 삭제할 게시글의 Index
-  const article_id = 160;
-  const body = {
-    user_id: 64
-  }
-
+async function reqDeleteArticle(articleId) {
   // HTTP 메서드는 delete지만 실제 DB에서 create_at 변수(게시물 생성일자)는 Null 처리, delete_at 변수(게시물 삭제일자)에 삭제 날짜만 업로드하고 나머지 데이터는 유지함
   // DELETE request는 바디값이 없어야 하는 것이 일반적.
   // 따라서 삭제할 게시물 id는 바디가 아닌 url로 전달한다.
   // 여기서 전달하는 body 값은 API 테스트를 위한 dummy data
   try{
     //052422 async await 도입
-    const response = await request(`articles/${article_id}`, httpMethod.delete, body, {"Content-Type": "application/json"});
-    const data = await response.json();
-    return data;
+    const response = await request(`articles/${articleId}`, httpMethod.delete);
+    return response
   } catch(error){
     console.log(error);
   }
@@ -113,18 +104,29 @@ async function reqGetMyArticles() {
 // 22.05.13
 // 게시글 좋아요 생성 또는 취소 request
 // URL : /articles/likes
-async function reqLikes() {
-  // dummy data
+async function reqLikes(articleId) {
   const body = {
-    // 좋아요를 누른 유저의 Index
-    user_id: 60,
     // 좋아요가 눌린 게시글의 Index
-    article_id: 156
+    article_id: articleId
   };
+  console.log(body);
 
   try{
-    //052422 async await 도입
     const response = await request(`articles/likes`, httpMethod.post, body, {"Content-Type": "application/json"});
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch(error){
+    console.log(error);
+  }
+}
+
+// 22.06.13
+// 게시글 좋아요 정보 확인
+// URL : /articles/likes
+async function reqGetLikes(articleId){
+  try{
+    const response = await request(`articles/likes/${articleId}`);
     const data = await response.json();
     return data;
   } catch(error){
@@ -132,6 +134,41 @@ async function reqLikes() {
   }
 }
 
-async function historyBack(){
-  history.back();
+// 게시글 상세 조회 request
+async function reqGetArticle(article_id) {
+  try{
+    const response = await request(`articles/${article_id}`);
+    if(response.ok){
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error();
+    }
+  } catch(error){
+    console.log(error);
+  }
+}
+
+// 게시글 목록 조회 request
+// URL : /articles?limit&cursor&key
+// infinite pagination
+// cursor: 조회된 목록의 첫번째 인덱스
+// limit: cursor로부터 몇 개의 게시물을 가져올 지 결정
+// key: 검색어
+async function reqGetArticles(cursor, limit, key) {
+  try{
+    let defaultUrl = `articles?limit=${limit}&cursor=${cursor}&key=`;
+    if(key){
+      defaultUrl = `articles?limit=${limit}&cursor=${cursor}&key=${key}`
+    }
+    const response = await request(defaultUrl);
+    if(response.ok){
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error();
+    }
+  } catch(error){
+    console.log(error);
+  }
 }

@@ -30,7 +30,10 @@ li {
 }
 
 button {
+  background: none;
+  color: inherit;
   border-style: none;
+  cursor: pointer;
   border-radius: 10px;
 }
 
@@ -76,20 +79,22 @@ hr {
 .header__icon--dropdown-contents {
   display: none;
   position: absolute;
-  padding: 10px 0px 10px;
+  padding: 10px 10px 10px;
   background-color: white;
   border-radius: 10px;
   border-style: solid;
   border-color: rgb(109, 165, 245);
-  min-width: 150px;
-  z-index: 1;
+  width: 100%;
+  min-width: 120px;
+  left: -50%;
+  z-index: 2;
 }
 
 .header__icon--dropdown-content {
   color: black;
-  width: 100px;
   padding: 15px 15px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .header__icon--dropdown-content:hover {
@@ -98,11 +103,17 @@ hr {
 }
 
 .header__icon--dropdown:hover .header__icon--dropdown-contents {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-/* header 알람 아이콘 */
+#logout {
+  text-align: left;
+  width: 100%;
+}
+
+/* header : 알람 아이콘 */
 .header__icon--dropdown-notification {
   width: 45px;
   height: 45px;
@@ -113,15 +124,86 @@ hr {
   cursor: pointer;
 }
 
-/* header 내 계정 아이콘 */
-.header__icon--dropdown-account {
+/* header : 내 계정 아이콘 */
+#profileImg {
   width: 45px;
   height: 45px;
-  margin-left: 10px;
-  background-color: white;
   border-radius: 50%;
-  border-color: rgb(109, 165, 245);
-  border-style: solid;
+}
+
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  text-align: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.modal-content strong {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Float yes and no buttons and add an equal width */
+.yesbtn,
+.nobtn {
+  float: left;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.yesbtn:hover,
+.nobtn:hover {
+  opacity: 1;
+}
+
+/* Add a color to the yes button */
+.yesbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the no button */
+.nobtn {
+  background-color: #f44336;
+}
+
+.clearfix {
+  margin-top: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -136,6 +218,7 @@ hr {
   border-radius: 10px;
   color: rgb(109, 165, 245);
 }
+
 /* 로그인 버튼의 텍스트 스타일 */
 .header__log-out-txt {
   font-size: 1rem;
@@ -147,55 +230,62 @@ hr {
 /* 로그인 성공 후 버튼 */
 .header__log-in {
   display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
 }
 
 /* figure: 홈페이지의 대표 이미지 관련 스타일*/
-.figureSection {
+.figure {
   width: 100%;
   margin: 10px auto;
   position: relative;
 }
+
 /* 이미지 위에 문자 얹고(Are you looking for~) 스타일 적용 */
-.mainMessage {
+.figure__message {
   font-size: 3.5rem;
   font-weight: 500;
   position: absolute;
   z-index: 1;
-  width: 50%;
   top: 4%;
   left: 40%;
 }
-/* 모바일 화면으로 줄어들었을 때 이미지와 텍스트에서 바뀌어야 할 사항 */
-@media screen and (max-width: 750px) {
-  .mainMessage {
-    font-size: 1.5rem;
-  }
-}
+
 /* 이미지 원본의 크기를 웹 시안에 맞게 조정 */
-.mainImg {
+.figure__img {
   position: relative;
-  left: 15%;
-  width: 70%;
+  left: 10%;
+  width: 80%;
   margin: 100px 0px 100px;
 }
 
-/* section class="serviceInfo" 서비스 소개 및 특징 설명 섹션 */
-.serviceInfo {
-  margin: 100px 25% 150px;
+/* 서비스 소개 및 특징 설명 섹션 */
+.service-info {
+  margin: 100px 20%;
   color: rgb(32, 49, 118);
 }
 
+.service-info .wrapper {
+  flex-direction: column;
+}
+
 /* 서비스 소개 섹션의 타이틀 스타일 */
-.aboutTitle {
+.service-info__about__title {
   font-size: 2rem;
 }
+
 /* 서비스 소개 섹션의 본문 스타일 */
-.aboutText {
+.service-info__about__text {
   font-size: 1.5rem;
 }
 
 /* 소개 섹션의 말풍선 기본 스타일 적용 */
-.balloon {
+.service-info__balloon__right,
+.service-info__balloon__left {
   display: flex;
   font-size: 1.5rem;
   position: relative;
@@ -211,12 +301,12 @@ hr {
 }
 
 /* 말풍선 중 첫번째와 세번째 말풍선의 위치를 오른쪽으로 조정 */
-.balloon.type1 {
+.service-info__balloon__right {
   margin-left: 45%;
 }
 
 /* 말풍선의 오른쪽 꼬리 스타일 적용 */
-.balloon.type1:after {
+.service-info__balloon__right:after {
   content: "";
   position: absolute;
   top: 21px;
@@ -225,8 +315,9 @@ hr {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
+
 /* 말풍선의 왼쪽 꼬리 스타일 적용 */
-.balloon.type2:after {
+.service-info__balloon__left:after {
   content: "";
   position: absolute;
   top: 21px;
@@ -238,21 +329,26 @@ hr {
 
 /* section class="fieldSection" 서비스 카테고리 소개 섹션 */
 /* 카테고리 섹션의 기본 세팅값 설정 */
-.fieldSection {
+.field {
   width: 100%;
   background-color: rgb(244, 244, 244);
   padding-top: 50px;
   padding-bottom: 150px;
 }
+
+.field .wrapper {
+  flex-direction: column;
+}
+
 /* 카테고리 섹션의 타이틀 스타일 적용 */
-.fieldTitle {
+.field__title {
   margin: 50px 25% 50px;
   color: rgb(32, 49, 118);
   font-size: 2rem;
   font-weight: bold;
 }
 /* 카테고리 섹션의 필드 박스 기본 스타일 적용*/
-.fieldContainer {
+.field__containers {
   display: grid;
   margin: 10px 25% 10px;
   grid-template-columns: 33% 33% 33%;
@@ -263,7 +359,14 @@ hr {
 
 /* 카테고리 섹션의 필드 박스 내부 텍스트의 스타일 적용*/
 /* 051822 카테고리 섹션의 클래스명을 지정하고 아래와 같이 변경 */
-.fieldItem_frontend, .fieldItem_backend, .fieldItem_fullstack, .fieldItem_ios, .fieldItem_android, .fieldItem_ai, .fieldItem_image, .fieldItem_recommendText {
+.field__container__frontend,
+.field__container__backend,
+.field__container__fullstack,
+.field__container__ios,
+.field__container__android,
+.field__container__ai,
+.field__container__image,
+.field__container__recommendText {
   /* 051822 컴포넌트 내 텍스트의 정중앙 위치 시, flex보다는 grid가 선호된다. */
   display: grid;
   justify-content: center;
@@ -275,21 +378,25 @@ hr {
   font-weight: bold;
 }
 
-.fieldItem_backend {
+.field__container__backend {
   background-color: rgb(208, 129, 135);
 }
-.fieldItem_fullstack {
+
+.field__container__fullstack {
   background-color: rgb(82, 146, 238);
 }
-.fieldItem_ios,
+
+.field__container__ios,
 .field-item_ai {
   background-color: rgb(220, 166, 170);
 }
-.fieldItem_image {
+
+.field__container__image {
   background-image: url("field.jpg");
   background-size: cover;
 }
-.fieldItem_recommendText {
+
+.field__container__recommendText {
   grid-column: 2/4;
   grid-row: 3/4;
   background-color: rgb(32, 49, 118);
@@ -297,25 +404,30 @@ hr {
 
 /* section class="reviewSection" 서비스 후기 섹션 */
 /* 리뷰 섹션의 기본 세팅값 설정 */
-.reviewSection {
-  margin: 20px 25%;
-  padding-top: 25px;
+.review {
+  margin: 100px 15%;
+}
+
+.review .wrapper {
+  flex-direction: column;
 }
 
 /* 리뷰 섹션의 타이틀 세팅값 설정 */
-.reviewTitle {
+.review__title {
   font-size: 2rem;
   font-weight: bold;
   color: rgb(32, 49, 118);
 }
+
 /* 리뷰 섹션의 슬라이드에서 버튼과 리뷰의 위치 조정 */
-.reviewSlide {
+.review__slide {
   display: flex;
+  column-gap: 30px;
   align-items: center;
-  margin: 50px auto 100px;
+  margin: 30px auto 0;
 }
 /* 슬라이드 버튼의 스타일 적용 */
-.arrowBtn {
+.review__slide__btn {
   border: none;
   border-radius: 50%;
   padding: 8px 24px;
@@ -327,58 +439,156 @@ hr {
   background-color: rgb(173, 201, 241);
   text-align: center;
 }
-.arrowBtn:hover {
+.review__slide__btn:hover {
   opacity: 1;
 }
 
 /* 리뷰 본문의 스타일 적용 */
 /* 052022 해당 레이아웃에 grid를 적용하는 게 맞을까? */
-.reviewerArticle {
-  width: 80%;
+.review__article {
   height: 500px;
-  padding-top: 30px;
   border-style: solid;
   border-width: 5px;
   border-color: rgb(173, 201, 241);
   border-radius: 30px;
   display: grid;
-  column-gap: 25px;
-  grid-template-columns: 30% 35%;
-  grid-template-rows: 100px 100px 150px;
+  grid-template-columns: 30% 30%;
+  column-gap: 20px;
   align-content: center;
+  justify-items: center;
+  align-items: center;
   justify-content: center;
-  align-items: start;
-  justify-items: start;
 }
 
 /* 리뷰어의 이미지 스타일 적용 */
-.reviewerImage {
-  width: 100%;
-  border-radius: 50px;
-  grid-column: 1/2;
-  grid-row: 1 / 3;
-  align-items: center;
+.review__article__image {
+  width: 60%;
+  border-radius: 50%;
 }
 
 /* 리뷰어의 개인 정보들 스타일 적용 */
-.reviewerCompany {
-  font-weight: bold;
-  font-size: 2rem;
-}
-.reviewerProfile {
+.review__article__company {
   font-weight: bold;
   font-size: 1.5rem;
 }
-.reviewText {
-  margin-top: 30px;
+.review__article__profile {
+  font-size: 1.2rem;
+}
+.review__article__text {
   grid-column: 1/3;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 /* footer 섹션 */
 .footer {
-  height: 60px;
-  position: relative;
-  transform: translateY(-100%);
+  width: 100%;
+  height: 100px;
+  bottom: 0;
   background-color: rgb(32, 49, 118);
+  color: rgb(215, 215, 215);
+}
+
+.footer .wrapper {
+  justify-content: center;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 360px) {
+  .yesbtn,
+  .nobtn {
+    width: 100%;
+  }
+
+  .header .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    row-gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .figure__message {
+    font-size: 1.5rem;
+    z-index: -1;
+  }
+
+  .figure__img {
+    margin: 100px 0 50px;
+  }
+
+  .service-info {
+    margin: 50px 10%;
+  }
+
+  .service-info__about__title {
+    font-size: 1.2rem;
+  }
+
+  .service-info__about__text {
+    font-size: 1rem;
+  }
+
+  .service-info__balloon__right,
+  .service-info__balloon__left {
+    font-size: 1rem;
+    margin-left: auto;
+  }
+
+  .field__title {
+    font-size: 1.2rem;
+  }
+
+  .field__containers {
+    display: flex;
+    margin: 10px 25% 10px;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .field__container__frontend,
+  .field__container__backend,
+  .field__container__fullstack,
+  .field__container__ios,
+  .field__container__android,
+  .field__container__ai,
+  .field__container__image,
+  .field__container__recommendText {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .review__title {
+    font-size: 1.2rem;
+  }
+
+  .review__article__image {
+    width: 30%;
+    border-radius: 50%;
+  }
+
+  .review__article {
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(173, 201, 241);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .review__article__company {
+    font-size: 1rem;
+  }
+  .review__article__profile {
+    font-size: 1rem;
+  }
+  .review__article__text {
+    font-size: 1rem;
+    margin: 10%;
+  }
+
+  .footer__info {
+    font-size: 0.8rem;
+  }
 }

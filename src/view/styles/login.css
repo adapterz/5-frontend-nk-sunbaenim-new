@@ -95,7 +95,6 @@ hr {
 }
 
 .form-card {
-  width: 480px;
   margin: 50px auto;
 }
 
@@ -103,6 +102,7 @@ hr {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  width: 100%;
 }
 
 .form-card__header {
@@ -130,17 +130,15 @@ hr {
 .login-guide {
   font-size: 1.3rem;
   font-weight: bold;
+  padding: 20px;
 }
 
 .form-card__section-email, .form-card__section-pwd {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.form-card__section-email.shake .error {
-  animation: shake 0.3s ease-in-out;
-}
-
-.form-card__section-pwd.shake .error{
+.form-card__section-email.shake,
+.form-card__section-pwd.shake {
   animation: shake 0.3s ease-in-out;
 }
 
@@ -156,17 +154,17 @@ hr {
   }
 }
 
-
-.email, .password{
+#email,
+#pwd {
   width: 290px;
   height: 40px;
   font-size: 20px;
-  border-style: none;
-  border-radius: 10px;
+  outline: none;
   padding : 0 0 0 10px;
 }
 
-.error {
+.error-empty,
+.error-format {
   display: none;
   margin-top: 5px;
   color: #dc3545;
@@ -195,6 +193,52 @@ input::placeholder {
   padding: 10px 10px;
 }
 
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #f5b7b7;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.modal-content strong {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modal-content p {
+  color: red;
+}
+
+/* The Modal Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .form-card__footer{
   font-size: 1rem;
   font-weight: bold;
@@ -215,4 +259,41 @@ input::placeholder {
 .footer .wrapper {
   justify-content: center;
   opacity: 0.6;
+}
+
+@media screen and (max-width: 360px) {
+  .yesbtn,
+  .nobtn {
+    width: 100%;
+  }
+
+  .header .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    row-gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .form-card__section {
+    row-gap: 10px;
+    height: 100%;
+  }
+  
+  .form-card__header {
+    font-size: 1.5rem;
+  }
+
+  .login-welcome {
+    font-size: 1.5rem;
+  }
+  
+  .login-guide {
+    font-size: 1rem;
+  }
+
+  .footer__info {
+    font-size: 0.8rem;
+  }
 }

@@ -20,19 +20,21 @@
     <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
       <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
-        <a href="/home" class="header__icon" aria-label="홈화면">HOME</a>
+        <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
         <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
         <button class="header__log-out">
           <a href="/login" class="header__log-out-txt" aria-label="로그인 버튼"
             >LOG IN</a
           >
         </button>
-        <section class="header__log-in">
-          <!-- <section class="header__icon--dropdown">
+        <!-- <section class="header__log-in">
+          <section class="header__icon--dropdown">
             <button
               type="button"
               class="header__icon--dropdown-notification"
-            ><img></button>
+            ></button>
             <div class="header__icon--dropdown-contents">
               <a
                 href="#"
@@ -47,18 +49,18 @@
                 >You've got a likes</a
               >
             </div>
-          </section> -->
+          </section>
           <section class="header__icon--dropdown">
             <button
               type="button"
               class="header__icon--dropdown-account"
-            ><img id="profileImg" src="/user_profile.png"></button>
+            ></button>
             <div class="header__icon--dropdown-contents">
               <a
-                href="/account"
+                href="/myposting"
                 aria-label="내 계정"
                 class="header__icon--dropdown-content"
-                >My account</a
+                >My page</a
               >
               <a
                 href="/create"
@@ -66,26 +68,16 @@
                 class="header__icon--dropdown-content"
                 >Create Post</a
               >
-              <button
-                type="button"
+              <a
+                href=""
                 aria-label="로그아웃"
                 class="header__icon--dropdown-content"
                 id="logout"
-                >Log out</button
+                >Log out</a
               >
             </div>
           </section>
-        </section>
-        <aside id="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <strong>Do you want to logout?</strong>
-            <div class="clearfix">
-              <button type="button" class="yesbtn">Yes</button>
-              <button type="button" class="nobtn">No</button>
-            </div>
-          </div>
-        </aside>
+        </section> -->
       </div>
     </header>
     <!-- 섹션 구분선 -->
@@ -188,9 +180,8 @@
     <!-- footer : 저작권 정보, 회사 정보 삽입 예정 -->
     <footer class="footer">
       <div class="wrapper">
-        <p class="footer__info">© 2022 Sunbaenim, LLC. All rights reserved.</p>
+        <p>© 2022 Sunbaenim, LLC. All rights reserved.</p>
       </div>
     </footer>
-    <script type="module" src="login_success.js"></script>
   </body>
 </html>

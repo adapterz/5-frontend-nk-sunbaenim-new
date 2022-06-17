@@ -20,8 +20,8 @@
       <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
         <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
-        <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
-        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
         <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
         <button class="header__login">
           <a href="/login" class="header__login-txt" aria-label="로그인 버튼"
@@ -45,21 +45,21 @@
           <div class="login-guide" aria-label="로그인 안내 문구">
             Please confirm your email and password
           </div>
-          <div class="form-card__section-email">
+          <section class="form-card__section-email">
             <div class="input-area">
               <input
                 type="email"
                 required
                 placeholder="example@sunbaenim.com"
                 aria-label="이메일 입력창"
-                class="email"
                 id="email"
                 name="email"
               />
             </div>
-            <div class="error error-txt">Email can't be blank</div>
-          </div>
-          <div class="form-card__section-pwd">
+            <div class="error-empty">Email can't be blank</div>
+            <div class="error-format">Incorrect format of email</div>
+          </section>
+          <section class="form-card__section-pwd">
             <div class="input-area">
               <input
                 type="password"
@@ -67,13 +67,12 @@
                 placeholder="password"
                 minlength="5"
                 aria-label="비밀번호 입력창"
-                class="password"
                 id="pwd"
                 name="pwd"
               />
             </div>
-            <div class="error error-txt">Password can't be blank</div>
-          </div>
+            <div class="error-empty">Incorrect password format</div>
+          </section>
           <input
             type="submit"
             value="Login"
@@ -81,19 +80,27 @@
             class="submit-btn"
             id="login"
           />
-          <div class="form-card__footer">
+          <aside id="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p><strong>Unable to login.</strong><br>
+                If you haven't created an account, we recommend signing up 😉
+              </p>
+            </div>
+          </aside>
+          <section class="form-card__footer">
             <span
               ><a href="/signup" aria-label="회원가입 페이지로 이동"
                 >Create Account</a
               ></span
             >
-            <span>|</span>
+            <!-- <span>|</span>
             <span
               ><a href="/pwd" aria-label="비밀번호 찾기"
                 >Forgot Password</a
               ></span
-            >
-          </div>
+            > -->
+          </section>
         </section>
       </div>
     </section>

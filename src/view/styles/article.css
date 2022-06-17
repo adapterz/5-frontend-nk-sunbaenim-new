@@ -20,6 +20,8 @@ body {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 ul,
@@ -29,10 +31,12 @@ li {
   padding: 0;
 }
 
-button, input[type=submit] {
+button {
+  background: none;
+  color: inherit;
   border-style: none;
-  border-radius: 10px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 input {
@@ -76,6 +80,32 @@ hr {
   font-size: 1rem;
 }
 
+/* 로그인 하지 않은 상태의 버튼 */
+/* 로그인 버튼의 레이아웃 스타일 */
+.header__log-out {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: rgb(173, 201, 241);
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(109, 165, 245);
+}
+/* 로그인 버튼의 텍스트 스타일 */
+.header__log-out-txt {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(109, 165, 245);
+}
+
+/* 로그인 성공 후 내 계정 버튼 */
+.header__log-in {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
 .header__icon--dropdown {
   position: relative;
   display: inline-block;
@@ -84,20 +114,22 @@ hr {
 .header__icon--dropdown-contents {
   display: none;
   position: absolute;
-  padding: 10px 0px 10px;
+  padding: 10px 10px 10px;
   background-color: white;
   border-radius: 10px;
   border-style: solid;
   border-color: rgb(109, 165, 245);
-  min-width: 150px;
+  width: 100%;
+  min-width: 120px;
+  left: -50%;
   z-index: 1;
 }
 
 .header__icon--dropdown-content {
   color: black;
-  width: 100px;
   padding: 15px 15px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .header__icon--dropdown-content:hover {
@@ -106,8 +138,14 @@ hr {
 }
 
 .header__icon--dropdown:hover .header__icon--dropdown-contents {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+#logout {
+  text-align: left;
+  width: 100%;
 }
 
 /* header 알람 아이콘 */
@@ -123,13 +161,92 @@ hr {
 
 /* header 내 계정 아이콘 */
 .header__icon--dropdown-account {
+  margin-left: 10px;
+}
+
+#profileImg {
   width: 45px;
   height: 45px;
-  margin-left: 10px;
-  background-color: white;
   border-radius: 50%;
-  border-color: rgb(109, 165, 245);
-  border-style: solid;
+}
+
+#modal,
+#create__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  text-align: center;
+}
+
+.modal-content,
+.create__modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.modal-content strong {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Float yes and no buttons and add an equal width */
+.yesbtn, .nobtn {
+  float: left;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.yesbtn:hover, .nobtn:hover {
+  opacity: 1;
+}
+
+/* Add a color to the yes button */
+.yesbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the no button */
+.nobtn {
+  background-color: #f44336;
+}
+
+.clearfix {
+  margin-top: 20px;
+}
+
+#empty {
+  display: block;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -152,7 +269,6 @@ hr {
   justify-content: center;
   margin-top: 30px;
   column-gap: 20px;
-  width: 70%;
 }
 
 /* 052222 >> 게시판 주제 및 검색을 할 수 있는 네비게이션 리스트 */
@@ -167,13 +283,15 @@ hr {
 }
 
 .main-nav__icon {
+  font-size: 1.3rem;
   font-weight: 350;
-  height: 20px;
+  height: 30px;
   padding: 10px 10px 5px;
   margin: 1vh;
   border-radius: 10px;
 }
 
+/* 051922 자바스크립트 함수로 내가 원하는 기능(디폴트로 hover 스타일 적용)을 구현할 수 있다고 판단 */
 .main-nav__icon:hover,
 .main-nav__icon.active {
   background-color: white;
@@ -195,18 +313,14 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  width: 60%;
   row-gap: 10px;
 }
 
 .article__create-btn {
   font-weight: 300;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   background-color: #D08187;
   padding: 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 .article__content {
@@ -216,7 +330,7 @@ hr {
   border-style: solid;
   border-color: #DCA6AA;
   background-color: white;
-  padding: 40px;
+  width: 100%;
 }
 
 .article__content--thumbnail {
@@ -226,42 +340,58 @@ hr {
   border-radius: 10px;
 }
 
-.article__content--user {
+.article__content__container {
+  margin: 30px;
+}
+
+.article__content__container-user {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   column-gap: 10px;
-  margin: 30px 0 20px 20px;
+  margin: 20px 0 50px 0;
 }
 
-.article__content--user-img {
+.article__content__container-user-img {
   width: 45px;
   height: 45px;
-  background-color: gray;
   border-radius: 50%;
-  cursor: pointer;
 }
 
-.article__content--words {
+.article__content__container-words {
   margin: 10px 0 100px;
   line-height: 25px;
 }
 
-.article__content--reaction {
+.article__content__container-reaction {
   display: flex;
   justify-content: center;
+  align-items: center;
   column-gap: 50px;
-  margin: 0 0 50px;
+  margin: 0 0 20px;
+}
+
+.article__content--likes {
+  width: 35px;
+  height: 35px;
 }
 
 .article__content--comment {
-  margin: 20px auto;
+  margin: 10px 5%;
+}
+
+.commentContent {
+  width: 100%;
 }
 
 .article__comment {
   display: flex;
   column-gap: 20px;
   margin: 20px;
+}
+
+.article__comment--contents {
+  width: 100%;
 }
 
 .article__comment--contents > span {
@@ -271,23 +401,88 @@ hr {
 .article__comment--user-img {
   width: 45px;
   height: 45px;
+  border-radius: 50%;
 }
 
-.article__comment--reply-btn {
-  border-style: none;
-  border-radius: 10px;
+.commentSubmit {
+  background-color: #c4c4c4;
   cursor: pointer;
 }
 
-.article__comment--more-btn {
-  margin-top: 30px;
-  height: 30px;
+#editor__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.article__comment--reply-section {
-  display: none;
-  column-gap: 20px;
-  margin: 20px auto 10px;
+.editor__modal-content {
+  background-color: #f5b7b7;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.editor__modal-content__close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.editor__modal-content__close:hover,
+.editor__modal-content__close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.editor__modal-content__guide {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.edit,
+.delete,
+.comment-edit,
+.comment-delete {
+  font-weight: 300;
+  background-color: #c4c4c4;
+}
+
+.delete,
+.comment-delete {
+  margin-left: 10px;
+  color:#f16f66;
+}
+
+.article__comment__lists {
+  margin: 30px;
+}
+
+.article__comment__reply-section {
+  margin-top: 5%;
+}
+
+.article__comment--reply-btn,
+.article__comment--submit-btn,
+.article__comment--cancel-btn {
+  background-color: #c4c4c4;
+}
+
+.article__comment--more-btn {
+  background-color: #c4c4c4;
+  margin: 30px;
+  height: 30px;
 }
 
 .article__next {
@@ -301,7 +496,7 @@ hr {
 }
 
 .article__next--content {
-  margin: 10px 5% 30px 5%;
+  margin: 30px 5% 30px 5%;
   display: flex;
   align-items: flex-start;
   column-gap: 20px;
@@ -320,4 +515,50 @@ hr {
 .footer .wrapper {
   justify-content: center;
   opacity: 0.6;
+}
+
+@media screen and (max-width: 360px) {
+  .login-yesbtn,
+  .login-nobtn,
+  .yesbtn,
+  .nobtn {
+    width: 100%;
+  }
+
+  .header .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    row-gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .main .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    row-gap: 30px;
+  }
+
+  .main-nav {
+    align-items: center;
+  }
+
+  .main-nav__icon {
+    font-size: 1rem;
+  }
+
+  .article {
+    width: 100%;
+  }
+
+  .article__create-btn {
+    width: 90%;
+    text-align: center;
+  }
+
+  .footer__info {
+    font-size: 0.8rem;
+  }
 }

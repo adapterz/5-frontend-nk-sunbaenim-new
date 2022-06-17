@@ -72,65 +72,22 @@ hr {
   width: 80%;
 }
 
-.header__icon {
+.header__log-out {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: rgb(173, 201, 241);
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(109, 165, 245);
+}
+
+/* 로그인 버튼의 텍스트 스타일 */
+.header__log-out-txt {
   font-size: 1rem;
-}
-
-.header__icon--dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.header__icon--dropdown-contents {
-  display: none;
-  position: absolute;
-  padding: 10px 0px 10px;
-  background-color: white;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: rgb(109, 165, 245);
-  min-width: 150px;
-  z-index: 1;
-}
-
-.header__icon--dropdown-content {
-  color: black;
-  width: 100px;
-  padding: 15px 15px;
+  font-weight: bold;
   text-decoration: none;
-}
-
-.header__icon--dropdown-content:hover {
-  background-color: rgb(109, 165, 245);
-  border-radius: 10px;
-}
-
-.header__icon--dropdown:hover .header__icon--dropdown-contents {
-  display: grid;
-  justify-content: center;
-}
-
-/* header 알람 아이콘 */
-.header__icon--dropdown-notification {
-  width: 45px;
-  height: 45px;
-  background-color: white;
-  border-radius: 50%;
-  border-color: rgb(109, 165, 245);
-  border-style: solid;
-  cursor: pointer;
-}
-
-/* header 내 계정 아이콘 */
-.header__icon--dropdown-account {
-  width: 45px;
-  height: 45px;
-  margin-left: 10px;
-  background-color: white;
-  border-radius: 50%;
-  border-color: rgb(109, 165, 245);
-  border-style: solid;
-  cursor: pointer;
+  color: rgb(109, 165, 245);
 }
 
 .end-msg {
