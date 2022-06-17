@@ -4,44 +4,46 @@
 
 //052322 HTTP METHOD, url 모듈화
 import { httpMethod, request } from "./common.js";
-export { reqSignUp, reqCreateNickname };
+export { reqSignUp, reqCreateNickname, reqLogin, reqLoginCheck, reqPwdChange, reqLogout, reqSignOut };
 //회원가입 request
 //URL : /users/signup
-async function reqSignUp(email, pwd, pwd_check) {
+async function reqSignUp(email, pwd, pwd_check, nickname) {
   const body = {
     email: email,
     pwd: pwd,
     pwd_check: pwd_check,
+    nickname: nickname,
   };
   //052522 async/await 문으로 바꿔준다
   try {
     const response = await request(`users/signup`, httpMethod.post, body, {
       "Content-Type": "application/json",
     });
-    const data = await response.json();
-    console.log(data);
-    return data;
+
+    if (response.status === 409) {
+      return 409;
+    } else if (response.status === 400) {
+      return 400;
+    } else if (response.status === 201) {
+      const data = await response.json();
+      return data;
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
 //내 닉네임 등록 request
-//서버 URL : /users/:users_id/ninkname
-async function reqCreateNickname(user_id, nickname) {
+//서버 URL : /users/ninkname
+async function reqCreateNickname(nickname) {
   const body = {
     nickname: nickname,
   };
 
   try {
-    const response = await request(
-      `users/${user_id}/nickname`,
-      httpMethod.post,
-      body,
-      {
-        "Content-Type": "application/json",
-      }
-    );
+    const response = await request(`users/nickname`, httpMethod.post, body, {
+      "Content-Type": "application/json",
+    });
 
     if (response.status === 409) {
       return 409;
@@ -79,19 +81,53 @@ async function reqCreateField() {
   }
 }
 
+//로그인 request
+//URL : /users/login
+async function reqLogin(email, pwd) {
+  try {
+    const body = {
+      email: email,
+      pwd: pwd,
+    };
+
+    const response = await request("users/login", httpMethod.post, body, {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    });
+
+    if (response.status === 401) {
+      return 401;
+    }
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 로그인 한 유저의 세션 정보 조회 request
+// URL : /users/auth
+async function reqLoginCheck() {
+  try {
+    const response = await request("users/auth");
+    if (response.status === 200) {
+      const data = await response.json();
+      return data;
+    }
+    if (response.status === 400) {
+      return 400;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 //로그아웃 request
 //URL : /users/logout
 async function reqLogout() {
-  //dummy data
-  const url = `http://localhost:8080/users/logout`;
-  const options = {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
   try {
     const response = await request(`users/logout`, httpMethod.post);
     const data = await response.json();
@@ -121,16 +157,20 @@ async function reqPwdSearch() {
 
 //내 비밀번호 변경 request : 이미 로그인 상태인 유저가 비밀번호를 바꾸고자 할 때
 //URL : /users/pwd
-async function reqPwdChange() {
-  //dummy data
+async function reqPwdChange(pwd, newPwd, pwdCheck) {
   const body = {
-    pwd: "qwerQWER!qwer",
-    new_pwd: "qwerQWER!",
-    new_pwd_check: "qwerQWER!",
+    pwd: pwd,
+    new_pwd: newPwd,
+    new_pwd_check: pwdCheck,
   };
 
   try {
-    const response = await request(`users/pwd`, httpMethod.patch, body);
+    const response = await request(`users/pwd`, httpMethod.patch, body, {
+      "Content-Type": "application/json",
+    });
+    if (response.status === 401) {
+      return 401;
+    }
     const data = await response.json();
     return data;
   } catch (error) {
@@ -140,16 +180,21 @@ async function reqPwdChange() {
 
 //회원탈퇴 request
 //URL : /users/signout
-async function reqSignOut() {
-  //dummy data
+async function reqSignOut(pwd) {
   const body = {
-    pwd: "qwerQWER!",
+    pwd: pwd,
   };
-
+  console.log(body);
   try {
-    const response = await request(`users/signout`, httpMethod.delete, body);
-    const data = await response.json();
-    return data;
+    const response = await request(`users/signout`, httpMethod.delete, body, {
+      "Content-Type": "application/json",
+    });
+    if (response.status === 401) {
+      return 401;
+    } else {
+      const data = await response.json();
+      return data;
+    }
   } catch (error) {
     console.log(error);
   }

@@ -130,41 +130,44 @@ hr {
 #output {
   width: 100px;
   height: 100px;
+  border-radius: 50%;
 }
 
-.profile__section-img {
-  display: flex;
-  align-items: center;
+.profile__section-nickname.shake {
+  animation: shake 0.3s ease-in-out;
 }
 
-.profile__section-nickname {
-  display: flex;
-  align-items: center;
+@keyframes shake {
+  0%, 100% {
+    margin-left: 0;
+  }
+  20%, 80% {
+    margin-left: -5px;
+  }
+  40%, 60% {
+    margin-left: 5px;
+  }
 }
 
 .nickname{
-  width: 50%;
+  width: 290px;
+  height: 50px;
   font-size: 20px;
-  border-style: none;
-  border-radius: 10px;
-  padding : 0 0 0 10px;
 }
 
-.nickname-validation,
-.nickname-empty {
+.error-empty {
   display: none;
-  color: red;
+  margin-top: 5px;
+  color: #dc3545;
 }
 
 .submit-btn{
   font-size: 1.3rem;
   font-weight: bold;
-  width: 50%;
-  border-style: none;
-  border-radius: 10px;
+  width: 300px;
+  height: 40px;
   background-color: rgb(82, 146, 238);
   transition: 0.3s;
-  text-align: center;
 }
 
 .submit-btn:hover{
@@ -176,6 +179,37 @@ input::placeholder {
   font-size: 1rem;
   color: lightgrey;
   padding: 10px 5px;
+}
+
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #f5b7b7;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.modal-content strong {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.modal-content p {
+  color: red;
 }
 
 /* footer 섹션 */

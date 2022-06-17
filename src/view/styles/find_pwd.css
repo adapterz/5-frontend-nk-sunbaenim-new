@@ -1,40 +1,84 @@
-/* 작성일자 : 22.05.18 */
-
 * {
   font-family: "Roboto", sans-serif;
 }
 
-/* header: 서비스 네비게이션 바 */
-.navBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 10px;
-  height: 60px;
-  font-size: 1rem;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  z-index: 1;
 }
 
-.navBarIcons {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
+body {
+  background-color: #e5e5e5;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
-/* 헤더 주요 메뉴들(Home, About us, Service, Forum) 사이의 마진 */
-.navBarIcon {
-  margin: 30px;
+button, input[type=submit] {
+  border-style: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* 모바일 화면으로 줄어들었을 때 나타나는 토글 버튼  */
-.navbarToggleBtn {
+input {
+  border-style: none;
+  border-radius: 10px;
+}
+
+/* 각 section 구분선 */
+hr {
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 052022 section, nav, article 태그 사용 시 헤딩 테그 브라우저에서 숨김 처리 */
+.heading-tag {
   display: none;
-  position: absolute;
+}
+
+/* 052022 wrapper를 가장 큰 단위의 컴포넌트 바로 하위 자식으로 구성 */
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* >> header */
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.header .wrapper {
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.header__icon {
+  font-size: 1rem;
 }
 
 /* 로그인 버튼 */
 /* 로그인 버튼의 레이아웃 스타일 */
-.loginBtn {
+.header__login {
   padding: 0.5rem 1rem;
   border: 2px solid;
   border-color: rgb(173, 201, 241);
@@ -43,42 +87,21 @@
   color: rgb(109, 165, 245);
 }
 /* 로그인 버튼의 텍스트 스타일 */
-.loginBtnInnerText {
+.header__login-txt {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
   color: rgb(109, 165, 245);
 }
-/* 헤더 메뉴 버튼 태그가 링크 태그여서 발생하는 속성 초기화 처리 */
-.navBarInnerText {
-  text-decoration: none;
-  color: black;
-}
-
-/* 구분선 */
-.line {
-  width: 90%;
-  color: lightgrey;
-}
-
-/* 모바일 화면으로 줄어들었을 때 헤더에서 바뀌어야 할 사항 */
-@media screen and (max-width: 750px) {
-  .navBarIcons {
-    display: none;
-  }
-  .loginBtn {
-    display: none;
-  }
-}
-
-/* section 태그 구분을 위한 헤딩 태그 초기화 */
-.headingTag {
-  display: none;
-}
 
 .formCard {
   width: 480px;
   margin: 50px auto;
+}
+
+.formCard .wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .formCardHeader {
@@ -88,22 +111,21 @@
 }
 
 .formCardFormat {
-  display: grid;
-  height: 450px;
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  width: 100%;
   margin: 40px auto;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
   background-color: rgb(173, 201, 241);
   border-radius: 20px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .formMessages {
   text-align: center;
 }
 
-/* 051922 주석으로 기능들을 구분하는 것 말고도 css를 조금 더 정돈할 수 있는 방법은 없을까? 
-지금 주석으로는 아직 불친절한 코드인 것 같다.  */
 .searchPwdWelcome {
   font-size: 2rem;
   font-weight: bold;
@@ -161,4 +183,10 @@ input::placeholder {
   position: fixed;
   bottom: 0;
   background-color: rgb(32, 49, 118);
+  color: rgb(215, 215, 215);
+}
+
+.footer .wrapper {
+  justify-content: center;
+  opacity: 0.6;
 }

@@ -19,8 +19,8 @@
       <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
         <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
-        <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
-        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
         <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
         <button class="header__login">
           <a href="/login" class="header__login-txt" aria-label="로그인 버튼"
@@ -46,15 +46,20 @@
               Please input your new account information
             </div>
           </header>
-          <input
+          <section class="form__section-email">
+            <input
             type="email"
             required
             placeholder="example@sunbaenim.com"
             aria-label="이메일 입력창"
             class="email"
             id="email"
-          />
-          <input
+            />
+            <div class="error-empty">Email can't be blank</div>
+            <div class="error-format">Incorrect format of email</div>
+          </section>
+          <section class="form__section-pwd__init">
+            <input
             type="password"
             required
             placeholder="Password"
@@ -62,16 +67,21 @@
             aria-label="비밀번호 입력창"
             class="password"
             id="pwd"
-          />
-          <input
+            />
+            <div class="error-empty">Incorrect password format</div>
+          </section>
+          <section class="form__section-pwd__check">
+            <input
             type="password"
             required
             placeholder="Password"
             minlength="5"
             aria-label="비밀번호 확인 입력창"
             class="password-check"
-            id="pwd_check"
+            id="pwdCheck"
           />
+          <div class="error-format">Password is not matched</div>
+          </section>
           <div class="terms-of-service">
             <input
               type="checkbox"
@@ -80,7 +90,7 @@
               class="checkbox"
             />
             <label class="label" for="checkbox"
-              >I agree to the terms of the service</label
+              >I agree to the <a href="https://www.termsfeed.com/live/b852143f-94dc-466b-a813-7fadf6657f0e" target="_black">terms of the service</a></label
             >
           </div>
           <input
@@ -90,6 +100,14 @@
             class="submitBtn"
             id="submit"
           />
+          <aside id="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p><strong>Unable to Sign up.</strong><br>
+                Please agree the terms of service 😉
+              </p>
+            </div>
+          </aside>
         </section>
       </div>
     </section>

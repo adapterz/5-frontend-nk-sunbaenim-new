@@ -21,16 +21,21 @@
     <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
       <div class="wrapper">
         <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
-        <a href="" class="header__icon" aria-label="홈화면">HOME</a>
-        <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
-        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a>
-        <a href="articles.html" class="header__icon" aria-label="게시판">FORUM</a>
-        <section class="header__icon">
-          <section class="header__icon--dropdown">
+        <a href="/home" class="header__icon" aria-label="홈화면">HOME</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
+        <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
+        <button class="header__log-out">
+          <a href="/login" class="header__log-out-txt" aria-label="로그인 버튼"
+            >LOG IN</a
+          >
+        </button>
+        <section class="header__log-in">
+          <!-- <section class="header__icon--dropdown">
             <button
               type="button"
               class="header__icon--dropdown-notification"
-            ></button>
+            ><img></button>
             <div class="header__icon--dropdown-contents">
               <a
                 href="#"
@@ -45,38 +50,49 @@
                 >You've got a likes</a
               >
             </div>
-          </section>
+          </section> -->
           <section class="header__icon--dropdown">
             <button
               type="button"
               class="header__icon--dropdown-account"
-            ></button>
+            ><img id="profileImg" src="/user_profile.png"></button>
             <div class="header__icon--dropdown-contents">
               <a
-                href="#"
+                href="/account"
                 aria-label="내 계정"
                 class="header__icon--dropdown-content"
-                >My page</a
+                >My account</a
               >
               <a
-                href="#"
+                href="/create"
                 aria-label="게시물 작성하기"
                 class="header__icon--dropdown-content"
                 >Create Post</a
               >
-              <a
-                href="#"
-                aria-label="북마크"
+              <button
+                type="button"
+                aria-label="로그아웃"
                 class="header__icon--dropdown-content"
-                >Bookmark</a
+                id="logout"
+                >Log out</button
               >
             </div>
           </section>
         </section>
+        <aside id="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <strong>Do you want to logout?</strong>
+            <div class="clearfix">
+              <button type="button" class="yesbtn">Yes</button>
+              <button type="button" class="nobtn">No</button>
+            </div>
+          </div>
+        </aside>
       </div>
     </header>
     <!-- 섹션 구분선 -->
-    <hr />
+    <hr/>
     <section class="figure">
       <div class="wrapper">
         <img class="figure__img" src="/article_header.jpg" />
@@ -85,91 +101,55 @@
     <section class="main">
       <div class="wrapper">
         <h1 class="heading-tag">article navigation section</h1>
-        <nav class="main-nav">
-          <h2 class="main-nav__title">Topics 🗣️</h2>
-          <a href="#" class="main-nav__icon active">All Listings </a>
-          <a href="#" class="main-nav__icon">IT Conference</a>
-          <a href="#" class="main-nav__icon">Project Promo</a>
+        <!-- <nav class="main-nav">
+          <h1 class="main-nav__title">Topics 🗣️</h1>
+          <a href="/articles" class="main-nav__icon active">All Listings </a>
+          <a href="#" class="main-nav__icon">Frontend</a>
+          <a href="#" class="main-nav__icon">Backend</a>
+          <a href="#" class="main-nav__icon">iOS/Android</a>
           <a href="#" class="main-nav__icon">Study Gathering</a>
-          <a href="#" class="main-nav__icon">Education</a>
+          <a href="#" class="main-nav__icon">IT Conference</a>
           <form class="main-nav__icon--search">
-            <input
-              class="main-nav__icon--search-text"
-              type="text"
-              placeholder="Keywords"
-            />
-            <input
-              class="main-nav__icon--search-btn"
-              type="submit"
-              value="Search"
-            />
+            <input class="main-nav__icon--search-text" type="text" placeholder="Keywords">
+            <button class="main-nav__icon--search-btn">Search</button>
           </form>
-        </nav>
+        </nav> -->
         <section class="article">
           <h1 class="heading-tag">article section</h1>
-          <a href="/articles/create" class="article__create-btn">Create Post</a>
+          <a href="/create" class="article__create-btn">Create Post</a>
+          <aside id="editor__modal">
+            <div class="editor__modal-content">
+              <span class="editor__modal-content__close close" id="close">&times;</span>
+              <strong class="editor__modal-content__guide"></strong>
+              <div class="clearfix">
+                <button type="button" class="login-yesbtn">Yes</button>
+                <button type="button" class="login-nobtn">No</button>
+              </div>
+            </div>
+          </aside>
           <article class="article__content">
             <hr />
             <section class="article__content--comment">
+              <h1 class="heading-tag">comment section</h1>
               <h4 class="article__content--comment-title">Discussion</h4>
-              <form action="" id="commentform">
-                <textarea
-                  rows="3"
-                  cols="100"
-                  name="comment"
-                  form="commentform"
-                  placeholder="Enter text here.."
-                ></textarea>
-                <input type="submit" />
-              </form>
+              <textarea
+                name="comment"
+                placeholder="Enter text here.."
+                class="commentContent"
+              ></textarea>
+              <input type="submit" id="comment" class="commentSubmit"/>
             </section>
-            <!-- TODO: 게시글 작성 라이브러리 검토해보기(디비에 어떻게 최대한 변경 없이 저장되지를 중점으로, 서버에 어떻게 전달될지)
-            TODO: 푸터에 기업 정보 삽입하기 -->
-            <!-- <section class="article__comment">
-              <a href="#"
-                ><img
-                  class="article__comment--user-img"
-                  src="/user_profile.png"
-              /></a>
-              <article class="article__comment--contents">
-                <span class="article__comment--user-nickname">nickname</span>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
-                </p>
-                <span class="article__comment--likes">5 Likes</span>
-                <span class="article__comment--replies">5 Replies</span>
-                <span class="article__comment--create-at">2022-04-24</span>
-                <button class="article__comment--reply-btn" type="button">
-                  Reply
-                </button>
-                <section class="article__comment--reply-section">
-                  <a href="#"><img
-                  class="article__comment--user-img"
-                  src="/user_profile.png"
-                  /></a>
-                  <article class="article__comment--contents">
-                  <span class="article__comment--user-nickname">nickname</span>
-                  <span class="article__comment--create-at"></span>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type
-                    specimen book.
-                  </p>
-                  <span class="article__comment--likes">5 Likes</span>
-                  <span class="article__comment--replies">5 Replies</span>
-                  <span class="article__comment--create-at">2022-04-24</span>
-                  <button class="article__comment--reply" type="button">
-                    Reply
-                  </button>
-                </section>
-              </article>
-            </section> -->
+            <aside id="editor__modal">
+              <div class="editor__modal-content">
+                <span class="editor__modal-content__close close" id="close">&times;</span>
+                <strong class="editor__modal-content__guide"></strong>
+                <div class="clearfix">
+                  <button type="button" class="login-yesbtn">Yes</button>
+                  <button type="button" class="login-nobtn">No</button>
+                </div>
+              </div>
+            </aside>
+            <div class="article__comment__lists" id="comment-container"></div>
             <button class="article__comment--more-btn" type="button" id="moreComments">
               More Comments
             </button>
@@ -177,26 +157,6 @@
           <section class="article__next">
             <h3 class="article__next--header">Next Articles</h3>
             <div class="article__next--content">
-              <a href="#"
-                ><img
-                  class="article__comment--user-img"
-                  src="/user_profile.png"
-              /></a>
-              <div>
-                <a href="#" class="article__next--content-title">What is Lorem Ipsum?</a>
-                <div><a href="#">Alan pupa</a></div>
-              </div>
-            </div>
-            <div class="article__next--content">
-              <a href="#"
-                ><img
-                  class="article__comment--user-img"
-                  src="/user_profile.png"
-              /></a>
-              <div>
-                <a href="#" class="article__next--content-title">나는 왜..</a>
-                <div><a href="#">Alan pupa</a></div>
-              </div>
             </div>
           </section>
         </section>
@@ -207,6 +167,6 @@
         <p class="footer__info">© 2022 Sunbaenim, LLC. All rights reserved.</p>
       </div>
     </footer>
-    <script type="module" src="/get_article.js"></script>
+    <script type="module" defer src="/get_article.js"></script>
   </body>
 </html>

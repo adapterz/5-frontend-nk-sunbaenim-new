@@ -1,5 +1,3 @@
-/* 052222 normalize css 적용을 바탕으로, 내 프로젝트에 맞는 custom css 적용 */
-
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -22,6 +20,8 @@ body {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 ul,
@@ -32,7 +32,10 @@ li {
 }
 
 button {
+  background: none;
+  color: inherit;
   border-style: none;
+  cursor: pointer;
   border-radius: 10px;
 }
 
@@ -72,6 +75,33 @@ hr {
   font-size: 1rem;
 }
 
+/* 로그인 하지 않은 상태의 버튼 */
+/* 로그인 버튼의 레이아웃 스타일 */
+.header__log-out {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: rgb(173, 201, 241);
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(109, 165, 245);
+}
+
+/* 로그인 버튼의 텍스트 스타일 */
+.header__log-out-txt {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(109, 165, 245);
+}
+
+/* 로그인 성공 후 내 계정 버튼 */
+.header__log-in {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
 /* header 알람, 내 계정 드롭다운 메뉴 */
 .header__icon--dropdown {
   position: relative;
@@ -81,20 +111,22 @@ hr {
 .header__icon--dropdown-contents {
   display: none;
   position: absolute;
-  padding: 10px 0px 10px;
+  padding: 10px 10px 10px;
   background-color: white;
   border-radius: 10px;
   border-style: solid;
   border-color: rgb(109, 165, 245);
-  min-width: 150px;
+  width: 100%;
+  min-width: 120px;
+  left: -50%;
   z-index: 1;
 }
 
 .header__icon--dropdown-content {
   color: black;
-  width: 100px;
   padding: 15px 15px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .header__icon--dropdown-content:hover {
@@ -103,8 +135,14 @@ hr {
 }
 
 .header__icon--dropdown:hover .header__icon--dropdown-contents {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+#logout {
+  text-align: left;
+  width: 100%;
 }
 
 /* header 알람 아이콘 */
@@ -120,13 +158,96 @@ hr {
 
 /* header 내 계정 아이콘 */
 .header__icon--dropdown-account {
+  margin-left: 10px;
+}
+
+#profileImg {
   width: 45px;
   height: 45px;
-  margin-left: 10px;
-  background-color: white;
   border-radius: 50%;
-  border-color: rgb(109, 165, 245);
-  border-style: solid;
+}
+
+#modal,
+#editor__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  text-align: center;
+}
+
+.modal-content,
+.editor__modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.modal-content strong {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Float yes and no buttons and add an equal width */
+.yesbtn,
+.nobtn,
+.login-yesbtn,
+.login-nobtn {
+  float: left;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.yesbtn:hover,
+.nobtn:hover,
+.login-yesbtn:hover,
+.login-nobtn:hover {
+  opacity: 1;
+}
+
+/* Add a color to the yes button */
+.login-nobtn,
+.yesbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the no button */
+.login-yesbtn,
+.nobtn {
+  background-color: #f44336;
+}
+
+.clearfix {
+  margin-top: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -149,6 +270,7 @@ hr {
 .main-nav {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 
 .main-nav__title {
@@ -171,22 +293,21 @@ hr {
   background-color: white;
 }
 
-.main-nav__icon--search {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.main-nav__icon--search-text {
+  height: 30px;
+  margin-top: 20px;
 }
 
 .main-nav__icon--search-btn {
-  width: 50%;
+  margin-top: 10px;
+  background-color: #d08187;
 }
 
 .main-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
+  width: 60%;
 }
 
 .main-list__header {
@@ -196,15 +317,22 @@ hr {
 
 .main-list__header--create-btn {
   background-color: #d08187;
-  border-radius: 10px;
-  padding: 5px;
+  padding: 5px 10px;
   margin-right: 5px;
-  cursor: pointer;
 }
 
 .main-list__header--sort {
   border-radius: 10px;
   padding: 5px;
+}
+
+.main-list__articles {
+  display: block;
+  width: 100%;
+}
+
+.main-list__articles__search {
+  width: 100%;
 }
 
 .main-list__article {
@@ -232,14 +360,15 @@ hr {
   font-weight: 300;
 }
 
+.main-list__article--edit-delete {
+  margin-top: 10px;
+}
+
 .main-list__article--user-img {
   width: 45px;
   height: 45px;
   margin-left: 10px;
-  background-color: gray;
-  border-radius: 10px;
-  border-style: solid;
-  cursor: pointer;
+  border-radius: 50%;
 }
 
 .main-list__page {
@@ -268,4 +397,67 @@ hr {
   background-color: #e5e5e5;
   width: 100%;
   height: 100px;
+}
+
+@media screen and (max-width: 360px) {
+  .login-yesbtn,
+  .login-nobtn,
+  .yesbtn,
+  .nobtn {
+    width: 100%;
+  }
+
+  .header .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    row-gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .main .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    row-gap: 30px;
+  }
+
+  .main-nav {
+    align-items: center;
+  }
+
+  .main-nav__icon {
+    font-size: 1rem;
+  }
+
+  .main-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-list__article--content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 20px;
+    word-wrap: brek-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .main-list__header {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main-list__article--reactions {
+    display: none;
+  }
+
+  .footer__info {
+    font-size: 0.8rem;
+  }
 }

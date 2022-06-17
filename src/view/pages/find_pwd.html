@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- normalize.css 도입 -->
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="find_pwd.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,79 +15,69 @@
     <title>password | SUNBAENIM</title>
   </head>
   <body>
-    <header class="navBar" aria-label="서비스 로고 및 상단 메뉴바">
-      <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
-      <ul class="navBarIcons">
-        <li class="navBarIcon">
-          <a href="" class="navBarInnerText" aria-label="홈화면">HOME</a>
-        </li>
-        <li class="navBarIcon">
-          <a href="" class="navBarInnerText" aria-label="운영진 소개"
-            >ABOUT US</a
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+        <a href="/" class="header__icon" aria-label="홈화면">HOME</a>
+        <!-- <a href="" class="header__icon" aria-label="운영진 소개">ABOUT US</a>
+        <a href="" class="header__icon" aria-label="서비스 소개">SERVICE</a> -->
+        <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
+        <button class="header__login">
+          <a href="/login" class="header__login-txt" aria-label="로그인 버튼"
+            >LOG IN</a
           >
-        </li>
-        <li class="navBarIcon">
-          <a href="" class="navBarInnerText" aria-label="서비스 소개"
-            >SERVICE</a
-          >
-        </li>
-        <li class="navBarIcon">
-          <a href="" class="navBarInnerText" aria-label="게시판">FORUM</a>
-        </li>
-      </ul>
-      <button class="loginBtn">
-        <a href="login.html" class="loginBtnInnerText" aria-label="로그인 버튼"
-          >LOG IN</a
-        >
-      </button>
-      <!--모바일 화면으로 줄어들었을 때 나타나는 토글 버튼 -->
-      <a href="#" class="navbarToggleBtn">
-        <i class="fas fa-bars"></i>
-      </a>
+        </button>
+      </div>
     </header>
     <!-- 섹션 구분선 -->
-    <hr class="line" />
+    <hr>
     <section class="formCard" aria-label="비밀번호 찾기 폼 카드">
-      <h1 class="headingTag">Find password</h1>
-      <header class="formCardHeader" aria-label="비밀번호 찾기 폼 제목">
-        Welcome to SUNBAENIM
-      </header>
-      <section class="formCardFormat">
-        <header class="formMessages">
-          <div class="searchPwdWelcome" aria-label="비밀번호 찾기 안내 문구">
-            Forgot your Password?
-          </div>
-          <div class="searchPwdGuide" aria-label="비밀번호 찾기 안내 문구">
-            Please confirm your email address
-          </div>
+      <div class="wrapper">
+        <h1 class="heading-tag">Find password</h1>
+        <header class="formCardHeader" aria-label="비밀번호 찾기 폼 제목">
+          Welcome to SUNBAENIM
         </header>
-        <form action="" method="POST" class="loginForm">
-          <div class="loginInputs">
-            <input
-              type="email"
-              required
-              placeholder="example@sunbaenim.com"
-              aria-label="이메일 입력창"
-              class="email"
-            />
+        <section class="formCardFormat">
+          <header class="formMessages">
+            <div class="searchPwdWelcome" aria-label="비밀번호 찾기 안내 문구">
+              Forgot your Password?
+            </div>
+            <div class="searchPwdGuide" aria-label="비밀번호 찾기 안내 문구">
+              Please confirm your email address
+            </div>
+          </header>
+          <form action="" method="POST" class="loginForm">
+            <div class="loginInputs">
+              <input
+                type="email"
+                required
+                placeholder="example@sunbaenim.com"
+                aria-label="이메일 입력창"
+                class="email"
+              />
+            </div>
+            <div class="loginInputs">
+              <input
+                type="submit"
+                value="Send email"
+                aria-label="인증 메일 전송 버튼"
+                class="submitBtn"
+              />
+            </div>
+          </form>
+          <div class="formCardFooter">
+            <span aria-label="비밀번호 인증용 메일 전송 가이드"
+              >A password reset link will be sent to the email address you signed
+              up for. <br>This link is valid for 10 minutes.</span
+            >
           </div>
-          <div class="loginInputs">
-            <input
-              type="submit"
-              value="Send email"
-              aria-label="인증 메일 전송 버튼"
-              class="submitBtn"
-            />
-          </div>
-        </form>
-        <div class="formCardFooter">
-          <span aria-label="비밀번호 인증용 메일 전송 가이드"
-            >A password reset link will be sent to the email address you signed
-            up for. <br>This link is valid for 10 minutes.</span
-          >
-        </div>
-      </section>
+        </section>
+      </div>
     </section>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="wrapper">
+        <p class="footer__info">© 2022 Sunbaenim, LLC. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

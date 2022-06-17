@@ -13,15 +13,18 @@ export const request = async (path, method, body, headers = {}) => {
   const options = {
     method: method,
     // cors 문제 해결을 위해 추가
-    //credentials: "include",
+    credentials: "include",
     headers: {
       ...headers,
     },
     body: JSON.stringify(body),
   };
-  console.log(url);
-  const res = await fetch(url, options);
-  return res;
+  try{
+    const res = await fetch(url, options);
+    return res;
+  } catch(error){
+    console.log(error);
+  }
 }
 
 // FIXME: 상태코드 모듈화 어떻게 적용할까..
