@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/create_article.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.quilljs.com/1.0.0/quill.snow.css"
+      rel="stylesheet"
+    />
+    <title>create posting | SUNBAENIM</title>
+  </head>
+  <body>
+    <header class="header" aria-label="서비스 로고 및 상단 메뉴바">
+      <div class="wrapper">
+        <h3 class="logo" aria-label="로고 텍스트">SUNBAENIM</h3>
+        <a href="/home" class="header__icon" aria-label="홈화면">HOME</a>
+        <a href="/articles" class="header__icon" aria-label="게시판">FORUM</a>
+        <button class="header__log-out">
+          <a href="/login" class="header__log-out-txt" aria-label="로그인 버튼"
+            >LOG IN</a
+          >
+        </button>
+        <section class="header__log-in">
+          <section class="header__icon--dropdown">
+            <button
+              type="button"
+              class="header__icon--dropdown-account"
+            ><img id="profileImg" src="user_profile.png"></button>
+            <div class="header__icon--dropdown-contents">
+              <a
+                href="/myposting"
+                aria-label="내 계정"
+                class="header__icon--dropdown-content"
+                >My page</a
+              >
+              <a
+                href="/create"
+                aria-label="게시물 작성하기"
+                class="header__icon--dropdown-content"
+                >Create Post</a
+              >
+              <button
+                type="button"
+                aria-label="로그아웃"
+                class="header__icon--dropdown-content"
+                id="logout"
+                >Log out</button
+              >
+            </div>
+          </section>
+        </section>
+        <aside id="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <strong>Do you want to logout?</strong>
+            <div class="clearfix">
+              <button type="button" class="yesbtn">Yes</button>
+              <button type="button" class="nobtn">No</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+    <hr />
+    <section class="editor">
+      <div class="wrapper">
+        <h1 class="heading-tag">article editor section</h1>
+        <section class="editor__header">
+          <h1 class="editor__header-title">Create Post</h1>
+          <section class="editor__header-btn">
+            <!-- <input type="submit" value="Saved" id="editor__header-btn__saved-btn" /> -->
+            <input type="button" value="Cancel" id="editor__header-btn__cancel-btn" onclick="history.back()" />
+          </section>
+        </section>
+        <section class="editor__container">
+          <input type="text" placeholder="Write your title" minlength="2" maxlength="90" required class="editor__container__title">
+          <textarea placeholder="Write your contents" minlength="2" class="editor__container__content"></textarea>
+          <select id="category" name="" class="editor__category">
+            <option value="0">Choose your category </option>
+            <option value="1">Frontend</option>
+            <option value="2">Backend</option>
+            <option value="3">iOS/Android</option>
+            <option value="4">Study Gathering</option>
+            <option value="4">IT Conference</option>
+          </select>
+          <input type="submit" value="Posting" class="editor__container__posting-btn"
+          id="posting">
+          <aside id="editor__modal">
+            <div class="editor__modal-content">
+              <span class="editor__modal-content__close">&times;</span>
+              <strong class="editor__modal-content__guide"></strong>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </section>
+    <script type="module" src="/edit_article.js" defer></script>
+  </body>
+</html>
