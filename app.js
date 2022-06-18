@@ -13,6 +13,10 @@ app.use(express.static('src/view/pages'));
 app.use(express.static('src/view/styles'));
 app.use(express.static('src/assets/images'));
 
+// robots.txt 추가
+app.get('/robots.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/robots.txt'));
+});
 // 홈화면
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/view/pages/home.html'));
@@ -73,7 +77,6 @@ app.get('/articles', (req, res) => {
 app.get('/articles/:article_id', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/view/pages/article.html'));
 });
-
 
 if (process.env.NODE_ENV === "production") {
   // production mode에서는 HTTPS로 접속하도록 해 줍니다.
