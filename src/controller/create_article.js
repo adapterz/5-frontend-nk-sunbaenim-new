@@ -46,16 +46,7 @@ async function createPosting (){
 
   // 포스팅이 성공적으로 업로드 되었을 경우, 이미지 파일 db에 썸네일 삽입
   if(posting){
-    const article_id = posting['article_id'][0].id;
-    console.log(article_id);
-    // 썸네일 이미지 데이터 가져오기
-    const fileInput = document.querySelector("#img");
-    if(fileInput.value){
-      let formData = new FormData();
-      formData.append("article_files", fileInput.files[0]);
-      await reqCreateThumbnail(article_id, formData);
-    }
-    window.location.href = `${domain}/articles`
+    window.location.href = `/articles`
   } else {
     alert("error");
   }
