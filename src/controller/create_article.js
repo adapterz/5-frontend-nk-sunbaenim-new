@@ -13,6 +13,25 @@ if (loginCheck !== 400) {
   window.location.href='/login';
 }
 
+const createEditorAlert = (alertText) => {
+  const editorModal = document.getElementById("editor__modal");
+  const modalText = document.querySelector(".editor__modal-content__guide");
+
+  editorModal.style.display = "block";
+  modalText.innerText = alertText;
+  const close = document.getElementsByClassName(
+    "editor__modal-content__close"
+  )[0];
+  close.onclick = function () {
+    editorModal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == editorModal) {
+      editorModal.style.display = "none";
+    }
+  };
+};
+
 // 포스팅 저장 후 반영된 게시글 페이지로 이동
 const postingBtn = document.getElementById("posting");
 postingBtn.addEventListener("click", createPosting);
