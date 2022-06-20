@@ -47,15 +47,19 @@ const showArticle = async (articleData) => {
 await showArticle(article);
 
 // 게시글 수정하기
+const contentSelector = document.querySelector(".editor__container__content");
+let content;
+contentSelector.addEventListener("input", async function(e){
+  content = e.target.value;
+  return content;
+})
 const editComponent = document.getElementById("posting");
 editComponent.addEventListener("click", editArticle);
 async function editArticle() {
   const title = document.querySelector(".editor__container__title").value;
-  const content = document.querySelector(".editor__container__content").innerHTML;
   const category = document.querySelector(".editor__category").value;
-  const response = await reqEditArticle(articleId, title, content, category);
 
-  console.log(response);
+  const response = await reqEditArticle(articleId, title, content, category);
   if(response){
     history.back();
   }
