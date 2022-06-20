@@ -17,6 +17,10 @@ app.use(express.static('src/assets/images'));
 app.get('/robots.txt', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/robots.txt'));
 });
+// sitemap.xml 추가
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
 // 홈화면
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/view/pages/home.html'));

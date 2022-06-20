@@ -1,4 +1,4 @@
-import { reqLoginCheck, reqCreateNickname, reqPwdChange, reqSignOut } from "./user.js";
+import { reqLoginCheck, reqCreateNickname, reqPwdChange, reqSignOut, reqLogout } from "./user.js";
 import { accountMenu } from "./login_success.js";
 import { reqArticleProfileImage, reqCreateProfileImage } from "./file.js";
 
@@ -11,12 +11,13 @@ const userAccountBtns = document.querySelector(".header__log-in");
 if (loginCheck !== 400) {
   loginBtn.style.display = "none";
   userAccountBtns.style.display = "flex";
-  accountMenu();
+  await accountMenu();
 } else {
   loginBtn.style.display = "block";
   userAccountBtns.style.display = "none";
   window.location.href='/login';
 }
+
 
 const editAlert = (alertText) => {
   const editorModal = document.getElementById("edit-modal");
@@ -182,6 +183,6 @@ async function signoutPwdCheck(){
     pwdField.querySelector(".error-invalid").style.display = "block";
     return
   }
-
+  await reqLogout();
   window.location.href= `/account/delete`
 }

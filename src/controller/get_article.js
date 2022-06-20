@@ -365,23 +365,20 @@ const showComments = async (commentsData) => {
 await showComments(comments);
 
 // 댓글 삭제 이벤트
-const deleteCommentComponent = document.querySelector(".comment-delete");
-if (deleteCommentComponent) {
-  deleteCommentComponent.addEventListener("click", deleteComment);
-  async function deleteComment() {
+const articleContainer = document.querySelector(".article__comment__lists");
+articleContainer.addEventListener("click", async function(e){
+  if(e.target.classList.contains("comment-delete")){
     const commentId = document.getElementById("index");
     const response = await reqDeleteComment(commentId.innerText);
     if (response) {
       window.location.href = `/articles/${articleId}`;
     }
   }
-}
+})
 
 // 댓글 수정 이벤트
-const editCommentComponent = document.querySelector(".comment-edit");
-if (editCommentComponent) {
-  editCommentComponent.addEventListener("click", editComment);
-  async function editComment() {
+articleContainer.addEventListener("click", async function(e){
+  if(e.target.classList.contains("comment-edit")){
     const container = document.querySelector(".article__comment--container");
     const btnContainer = document.querySelector(
       ".article__comment--edit-delete"
@@ -413,7 +410,7 @@ if (editCommentComponent) {
       }
     })
   }
-}
+})
 
 // More Comments 댓글을 눌렀을 때 다음 댓글이 조회되도록 하는 이벤트 생성
 document
